@@ -1,15 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router } from 'react-router-dom';
+import { useState } from 'react';
+import './App.css';
 import TopNavbar from './layout/TopNavbar';
+import NavBar from './layout/NavBar';
 
 function App() {
   return (
-    <div className="min-h-screen h-[852px] w-[1440px] flex flex-col">
-      <TopNavbar />
+    <Router>
+      <div className="min-h-screen h-[852px] w-[1440px] flex flex-col mx-auto">
+        <TopNavbar />
+        <NavBar />
 
-    </div>
+
+
+      </div>
+    </Router>
   );
-};
-export default App
+}
+
+export default App;
+

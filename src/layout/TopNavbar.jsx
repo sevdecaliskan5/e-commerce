@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Phone, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Mail, Phone, Instagram, Facebook, Twitter } from 'lucide-react';
 
 const TopNavbar = () => {
   return (
@@ -12,6 +12,7 @@ const TopNavbar = () => {
             <span className="text-sm">(213) 555-0118</span>
           </div>
           <div className="hidden md:flex items-center space-x-1">
+            <Mail size={16}  className="text-white"/>
             <span className="text-sm">michelle.rivera@example.com</span>
           </div>
         </div>
