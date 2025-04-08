@@ -19,7 +19,7 @@ const NavBar = () => {
             <NavLink to="/" exact>
               Home
             </NavLink>
-            <div class="relative inline-block text-left">
+            <div className="relative inline-block text-left">
               <div>
                 <button
                   onClick={() => setToggle(!toggle)}
