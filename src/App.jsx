@@ -1,22 +1,19 @@
-import { BrowserRouter as Router } from 'react-router-dom';
-import { useState } from 'react';
-import './App.css';
-import TopNavbar from './layout/TopNavbar';
-import NavBar from './layout/NavBar';
+import HomePage from "./pages/HomePage";
+import "react-toastify/dist/ReactToastify.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen h-[852px] w-[1440px] flex flex-col mx-auto">
-        <TopNavbar />
-        <NavBar />
-
-
-
-      </div>
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+      </Switch>
     </Router>
   );
 }
 
 export default App;
+
 
