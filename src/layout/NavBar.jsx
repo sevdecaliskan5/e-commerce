@@ -10,12 +10,13 @@ const NavBar = () => {
       <div className="flex justify-between container mx-auto p-4">
         <div className="flex gap-x-36">
           <div>
-            <NavLink to="/" exact className="font-bold text-2xl text-[#252b42]">
-              Bandage
-            </NavLink>
+          <NavLink to="/" exact className="font-bold text-2xl text-[#252b42] block">
+  Bandage
+</NavLink>
+
           </div>
 
-          <div className="flex gap-4 text-[#737373] font-bold text-sm items-center">
+          <div className="flex gap-4 text-[#737373] font-bold text-sm items-center hidden lg:flex">
             <NavLink to="/" exact>
               Home
             </NavLink>
@@ -146,8 +147,8 @@ const NavBar = () => {
             </NavLink>
           </div>
         </div>
-        <div className="flex gap-4 text-[#23A6F0] font-bold text-sm">
-          <NavLink to="/login" exact className="flex items-center">
+        <div className="flex gap-4 text-[#23A6F0] font-bold text-sm items-center">
+          <NavLink to="/login" exact className="flex items-center lg:hidden">
             <box-icon
               name="user"
               color="#23a6f0"
