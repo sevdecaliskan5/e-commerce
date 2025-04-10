@@ -330,4 +330,31 @@ export const AllData = {
       img: Images.productList.productList12,
     },
   ],
+
+  about: [
+    {
+      img: Images.about.about3,
+      header: "username",
+      role: "professsion",
+      facebook: "",
+      instagram: ""  ,
+      twitter: "",
+    },
+    {
+      img: Images.about.about4,
+      header: "username",
+      role: "professsion",
+      facebook: "",
+      instagram:  "",
+      twitter: "",
+    },
+    {
+      img: Images.about.about5,
+      header: "username",
+      role: "professsion",
+      facebook: "",
+      instagram: "",
+      twitter: "",
+    }
+  ]
 };
