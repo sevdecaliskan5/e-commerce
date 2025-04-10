@@ -1,5 +1,7 @@
-import slider1 from "./images/slider1.jpg";
-import slider2 from "./images/slider2.png";
+import sliderTop1 from "./images/sliderTop1.jpg";
+import sliderTop2 from "./images/sliderTop2.png";
+import sliderBottom1 from "./images/sliderBottom1.png";
+import sliderBottom2 from "./images/sliderBottom2.png";
 import blueEllipse from "../assets/shapes/Ellipse 14.svg";
 import greenEllipse from "../assets/shapes/Ellipse 15.svg";
 import orangeEllipse from "../assets/shapes/Ellipse 16.svg";
@@ -26,6 +28,13 @@ import stripe from "../assets/icons/Vector-2.png";
 import amazon from "../assets/icons/Vector-3.png";
 import reddit from "../assets/icons/Vector-4.png";
 
+import about1 from "../assets/images/about/technology.png";
+import about2 from "../assets/images/about/videocard.png";
+import about3 from "../assets/images/about/media.png";
+import about4 from "../assets/images/about/media1.png";
+import about5 from "../assets/images/about/media2.png";
+import about6 from "../assets/images/about/aboutend.png";
+
 import productList1 from "../assets/images/productList/fixed-height-1.png";
 import productList2 from "../assets/images/productList/fixed-height-2.png";
 import productList3 from "../assets/images/productList/fixed-height-3.png";
@@ -47,10 +56,12 @@ import category5 from "../assets/images/categories/media bg-cover4.png";
 
 export const Images = {
   sliders: {
-    slider1,
-    slider2,
+    sliderTop1,
+    sliderTop2,
+    sliderBottom1,
+    sliderBottom2,
   },
-  
+
   icons: {
     hooli,
     lyft,
@@ -111,5 +122,14 @@ export const Images = {
     productList10,
     productList11,
     productList12,
+  },
+
+  about: {
+    about1,
+    about2,
+    about3,
+    about4,
+    about5,
+    about6,
   },
 };
