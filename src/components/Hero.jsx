@@ -47,3 +47,5 @@ const heroSlides = [
      </div>
    );
  }
+
+ export default Hero;
