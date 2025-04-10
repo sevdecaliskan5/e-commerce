@@ -5,7 +5,7 @@ import HomeBestSellers from "../layout/HomeBestSellers";
 import Slider from "../components/Slider";
 import FeaturedPosts from "../components/FeaturedPosts";
 import PartOf from "../components/PartOf";
-import Images from "../assets/Images";
+import {Images} from "../assets/Images";
 
 const sliderTwoSlides = [
   {

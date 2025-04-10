@@ -339,6 +339,7 @@ export const AllData = {
       facebook: "",
       instagram: ""  ,
       twitter: "",
+      key:1,
     },
     {
       img: Images.about.about4,
@@ -347,6 +348,7 @@ export const AllData = {
       facebook: "",
       instagram:  "",
       twitter: "",
+      key:2,
     },
     {
       img: Images.about.about5,
@@ -355,6 +357,7 @@ export const AllData = {
       facebook: "",
       instagram: "",
       twitter: "",
+      key:3,
     }
   ]
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import TopNavbar from "../layout/TopNavbar";
 import NavBar from "../layout/NavBar";
-import Images from "../assets/Images";
+import { Images } from "../assets/Images";
 import Slider from './Slider';
 
 const heroSlides = [
