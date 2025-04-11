@@ -1,0 +1,22 @@
+import Footer from "../layout/Footer";
+import InnerHeader from "../layout/InnerHeader";
+import PricingHeader from "../components/PricingHeader";
+import Pricing from "../components/Pricing";
+import AboutClients from "../components/AboutClients";
+import PricingFaq from "../components/PricingFaq";
+
+
+function PricingPage() {
+  return (
+    <>
+<InnerHeader/>
+<PricingHeader/>
+<Pricing/>
+<AboutClients />
+<PricingFaq/>
+<Footer/>
+</>
+  );
+}
+
+export default PricingPage;

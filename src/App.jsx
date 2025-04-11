@@ -1,8 +1,9 @@
 import HomePage from "./pages/HomePage";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import PricingPage from "./pages/PricingPage";
+import ContactPage from "./pages/ContactPage";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   return (
@@ -12,10 +13,13 @@ function App() {
           <HomePage />
         </Route>
         <Route exact path="/about">
-          <About />
+          <AboutPage />
         </Route>
         <Route exact path="/contact">
-          <Contact />
+          <ContactPage />
+        </Route>
+        <Route exact path="/pricing">
+          <PricingPage />
         </Route>
       </Switch>
     </Router>
