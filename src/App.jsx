@@ -5,6 +5,7 @@ import PricingPage from "./pages/PricingPage";
 import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import TeamPage from "./pages/TeamPage";
+import BlogPage from "./pages/BlogPage";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route exact path="/pricing">
           <PricingPage />
+        </Route>
+        <Route exact path="/blog">
+          <BlogPage />
         </Route>
         <Route exact path="/team">
           <TeamPage />

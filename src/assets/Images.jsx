@@ -64,6 +64,14 @@ import team7 from "../assets/images/team/team7.png";
 import team8 from "../assets/images/team/team8.png";
 import team9 from "../assets/images/team/team9.png";
 
+import blog1 from "../assets/images/blog/blog1.png";
+import blog2 from "../assets/images/blog/blog2.png";
+import blog3 from "../assets/images/blog/blog3.png";
+import blog4 from "../assets/images/blog/blog4.png";
+import blog5 from "../assets/images/blog/blog5.png";
+import blog6 from "../assets/images/blog/blog6.png";
+
+
 export const Images = {
   sliders: {
     sliderTop1,
@@ -153,5 +161,14 @@ export const Images = {
     team7,
     team8,
     team9,
+  },
+
+  blog: {
+    blog1,
+    blog2,
+    blog3,
+    blog4,
+    blog5,
+    blog6,
   }
 };
