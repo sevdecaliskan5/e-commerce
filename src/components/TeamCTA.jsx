@@ -17,17 +17,17 @@ export default function TeamCTA() {
             Try it free now
           </button>
           <div className=" flex p-[10px] gap-[34px]">
-            <a href="">
+          <a href="">
               <Facebook className="text-4xl text-[#395185]" />
             </a>
             <a href="">
-              <Instagram className="text-4xl text-black" />
+              <Instagram className="text-4xl text-[#E4405F]" />
             </a>
             <a href="">
               <Linkedin className="text-4xl text-[#0A66C2]" />
             </a>
             <a href="">
-              <Twitter className="text-4xl text-[#55ACEE]" />
+              <Twitter className="text-4xl text-[#1DA1F2]" />
             </a>
           </div>
         </div>
