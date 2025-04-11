@@ -10,9 +10,11 @@ const items = AllData.team;
         <div className="flex flex-col gap-2">
           <h1 className="px-20 sm:px-0 font-bold text-[40px]">Meet Our Team</h1>
         </div>
-        <div className="flex flex-col md:flex-row justify-between gap-6 w-full">
+        <div className="flex flex-wrap justify-between gap-6 w-full">
+
             {items.map((item) => (
-              <div key={item.id} className="w-full md:w-[330px] font-bold">
+            <div key={item.id} className="w-full sm:w-[30%] lg:w-[30%] font-bold flex flex-col items-center">
+
                 <img
                   className="w-full h-[231px] object-cover"
                   src={item.img}
