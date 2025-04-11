@@ -10,15 +10,15 @@ function Footer() {
             <div className="flex gap-4">
               <Facebook
                 size={20}
-                className="text-[#77a6f8] hover:text-blue-600 cursor-pointer"
+                className="text-primary-color hover:text-blue-600 cursor-pointer"
               />
               <Instagram
                 size={20}
-                className="text-[#77a6f8] hover:text-pink-500 cursor-pointer"
+                className="text-primary-color hover:text-pink-500 cursor-pointer"
               />
               <Twitter
                 size={20}
-                className="text-[#77a6f8] hover:text-sky-500 cursor-pointer"
+                className="text-primary-color hover:text-sky-500 cursor-pointer"
               />
             </div>
           </div>

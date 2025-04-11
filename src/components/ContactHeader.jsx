@@ -17,10 +17,18 @@ export default function ContactHeader() {
           <p>Fax : +451 215 215</p>
         </div>
         <div className="flex justify-center sm:justify-start gap-[34px] p-[10px] text-[#252B42]">
-          <a href="#"><Twitter size={32} /></a>
-          <a href="#"><Facebook size={32} /></a>
-          <a href="#"><Instagram size={32} /></a>
-          <a href="#"><Linkedin size={32} /></a>
+            <a href="">
+              <Facebook className="text-4xl text-[#395185] hover:fill-[#395185] transition-colors" />
+            </a>
+            <a href="">
+              <Instagram className="text-4xl text-[#E4405F] hover:fill-[#E4405F] transition-colors" />
+            </a>
+            <a href="">
+              <Linkedin className="text-4xl text-[#0A66C2] hover:fill-[#0A66C2] transition-colors" />
+            </a>
+            <a href="">
+              <Twitter className="text-4xl text-[#1DA1F2] hover:fill-[#1DA1F2] transition-colors" />
+            </a>
         </div>
       </div>
 
