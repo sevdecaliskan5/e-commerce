@@ -54,6 +54,16 @@ import category3 from "../assets/images/categories/media bg-cover2.png";
 import category4 from "../assets/images/categories/media bg-cover3.png";
 import category5 from "../assets/images/categories/media bg-cover4.png";
 
+import team1 from "../assets/images/team/team1.png";
+import team2 from "../assets/images/team/team2.jpg";
+import team3 from "../assets/images/team/team3.png";
+import team4 from "../assets/images/team/team4.png";
+import team5 from "../assets/images/team/team5.png";
+import team6 from "../assets/images/team/team6.png";
+import team7 from "../assets/images/team/team7.png";
+import team8 from "../assets/images/team/team8.png";
+import team9 from "../assets/images/team/team9.png";
+
 export const Images = {
   sliders: {
     sliderTop1,
@@ -132,4 +142,16 @@ export const Images = {
     about5,
     about6,
   },
+
+  team: {
+    team1,
+    team2,
+    team3,
+    team4,
+    team5,
+    team6,
+    team7,
+    team8,
+    team9,
+  }
 };
