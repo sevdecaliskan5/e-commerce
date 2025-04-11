@@ -6,12 +6,13 @@ import Footer from "../layout/Footer";
 import { AboutTeam } from "../components/AboutTeam";
 import AboutClients from "../components/AboutClients";
 import AboutTestimonials from "../components/AboutTestimonials";
+import InnerHeader from "../layout/InnerHeader";
 
 
 function About() {
   return (
     <>
-
+<InnerHeader/>
 <AboutHeader/>
 <AboutContent/>
 <AboutStats/>

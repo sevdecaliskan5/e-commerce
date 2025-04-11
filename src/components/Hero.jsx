@@ -1,8 +1,7 @@
 import React from "react";
-import TopNavbar from "../layout/TopNavbar";
-import NavBar from "../layout/NavBar";
 import { Images } from "../assets/Images";
 import Slider from './Slider';
+import HomeHeader from "../layout/HomeHeader";
 
 const heroSlides = [
    {
@@ -30,8 +29,7 @@ const heroSlides = [
  function Hero() {
   return (
     <div>
-      <TopNavbar />
-      <NavBar />
+      <HomeHeader />
       <Slider 
          slides={heroSlides}
          containerClassName="relative w-full h-screen overflow-hidden"
