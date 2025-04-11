@@ -1,15 +1,24 @@
 import { LogIn } from 'lucide-react';
+import { NavLink } from "react-router-dom";
 
 const InnerHeader = () => {
   return (
     <header className="w-full bg-white border-b">
       <div className="max-w-[1322px] mx-auto flex justify-between items-center px-6 py-4 text-sm text-[#292929]">
         <div className="text-xl font-bold">Bandage</div>
-        <nav className="flex gap-4 items-center text-gray-700">
-          <a href="#">Home</a>
-          <a href="#">Product</a>
-          <a href="#">Pricing</a>
-          <a href="#">Contact</a>
+        <nav className="flex gap-4 items-center text-gray-700">  
+          <NavLink to="/" exact>
+              Home
+            </NavLink>
+            <NavLink to="/product" exact>
+              Product
+            </NavLink>
+            <NavLink to="/pricing" exact>
+              Pricing
+            </NavLink>
+            <NavLink to="/contact" exact>
+              Contact
+            </NavLink>
         </nav>
         <div className="flex gap-4 items-center">
           <a href="#" className="text-blue-600 font-semibold flex items-center gap-1">
