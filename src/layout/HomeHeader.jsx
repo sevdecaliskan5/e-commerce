@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
   ChevronDown,
@@ -7,8 +7,8 @@ import {
   Instagram,
   Search,
   ShoppingCart,
-  Heart
-} from 'lucide-react';
+  Heart,
+} from "lucide-react";
 
 const HomeHeader = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -35,14 +35,19 @@ const HomeHeader = () => {
         <div className="text-xl font-bold">Bandage</div>
 
         <nav className="flex gap-6 items-center">
-          <a href="#" className="text-pink-500">Home</a>
+          <NavLink to="/" className="flex items-center gap-1">
+            Home
+          </NavLink>
 
           <div
             className="relative"
             onMouseEnter={() => setShowDropdown(true)}
             onMouseLeave={() => setShowDropdown(false)}
           >
-            <button className="flex items-center gap-1">Shop <ChevronDown size={16} /></button>
+            <NavLink to="/shop" className="flex items-center gap-1">
+              Shop <ChevronDown size={16} />
+            </NavLink>
+
             {showDropdown && (
               <div className="absolute left-0 top-8 bg-white shadow-lg text-left border p-4 grid grid-cols-2 gap-4 w-[280px] z-50">
                 <div>
@@ -67,23 +72,24 @@ const HomeHeader = () => {
             )}
           </div>
 
-
           <NavLink to="/about" exact>
-              About
-            </NavLink>
-            <NavLink to="/blog" exact>
-              Blog
-            </NavLink>
-            <NavLink to="/contact" exact>
-              Contact
-            </NavLink>
-            <NavLink to="/pages" exact>
-              Pages
-            </NavLink>
+            About
+          </NavLink>
+          <NavLink to="/blog" exact>
+            Blog
+          </NavLink>
+          <NavLink to="/contact" exact>
+            Contact
+          </NavLink>
+          <NavLink to="/pages" exact>
+            Pages
+          </NavLink>
         </nav>
 
         <div className="flex items-center gap-4 text-sm">
-          <a href="#" className="text-blue-500">Login / Register</a>
+          <a href="#" className="text-blue-500">
+            Login / Register
+          </a>
           <Search size={18} />
           <ShoppingCart size={18} />
           <Heart size={18} />
@@ -94,5 +100,3 @@ const HomeHeader = () => {
 };
 
 export default HomeHeader;
-
-

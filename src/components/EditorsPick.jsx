@@ -13,7 +13,7 @@ function EditorsPick() {
             Problems trying to resolve the conflict between{" "}
           </p>
         </div>
-        <div className="bg-[#FAFAFA] mt-10 pb-10">
+        <div className="bg-[#FAFAFA] h-[500px] mt-10 pb-10">
           <div className="flex gap-5 w-fit mx-auto flex-wrap font-bold text-base">
             <div className="relative">
               <img
@@ -74,3 +74,5 @@ function EditorsPick() {
 }
 
 export default EditorsPick;
+
+
