@@ -5,9 +5,9 @@ function HomeBestSellerCard() {
   const items = AllData.bestSellers;
 
   return (
-    <div className="flex gap-[50px] flex-wrap items-center justify-center pb-[80px]">
+    <div className="max-w-[1049px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-[80px]">
       {items.map((item) => (
-        <div key={item.key} className="">
+        <div key={item.key} className="flex flex-col items-center">
           <img
             src={item.img}
             alt={item.product}

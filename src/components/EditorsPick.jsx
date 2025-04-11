@@ -16,27 +16,36 @@ function EditorsPick() {
         <div className="bg-[#FAFAFA] mt-10 pb-10">
           <div className="flex gap-5 w-fit mx-auto flex-wrap font-bold text-base">
             <div className="relative">
-              <img src={editorman} className="object-cover" />
+              <img
+                src={editorman}
+                className="w-[510px] h-[500px] object-cover"
+              />
               <a
                 href="#"
-                className="absolute left-7 bottom-7 py-2 px-[4rem] bg-white"
+                className="absolute left-7 bottom-7 py-2 px-4 bg-white"
               >
                 MEN
               </a>
             </div>
             <div className="relative">
-              <img src={editorwoman} className="object-cover" />
+              <img
+                src={editorwoman}
+                className="w-[240px] h-[500px] object-cover"
+              />
               <a
                 href="#"
-                className="absolute left-7 bottom-7 py-2 px-6 bg-white"
+                className="absolute left-7 bottom-7 py-2 px-4 bg-white"
               >
                 WOMEN
               </a>
             </div>
 
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-[16px]">
               <div className="relative">
-                <img src={editorwoman2} className="object-cover" />
+                <img
+                  src={editorwoman2}
+                  className="w-[240px] h-[242px] object-cover"
+                />
                 <a
                   href=""
                   className="absolute left-7 bottom-7 py-2 px-4 bg-white"
@@ -45,10 +54,13 @@ function EditorsPick() {
                 </a>
               </div>
               <div className="relative">
-                <img src={editorman2} className="object-cover" />
+                <img
+                  src={editorman2}
+                  className="w-[240px] h-[242px] object-cover"
+                />
                 <a
                   href=""
-                  className="absolute left-7 bottom-7 py-2 px-7 bg-white"
+                  className="absolute left-7 bottom-7 py-2 px-4 bg-white"
                 >
                   KIDS
                 </a>

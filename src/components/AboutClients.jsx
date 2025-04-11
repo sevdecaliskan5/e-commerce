@@ -14,7 +14,7 @@ export default function AboutClients() {
                  of Classical physics: Newtonian mechanics{" "}
                </h6>
              </div>
-             <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-[30px] py-8 md:py-[50px] w-full">
+             <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-[40px] py-8 md:py-[50px] w-full">
                <img className="w-[80px] h-[33.81px] object-contain" src={Images.icons.hooli} alt="Hooli" />
                <img className="w-[83px] h-[59px] object-contain" src={Images.icons.lyft} alt="Lyft" />
                <img className="w-[102px] h-[75px] object-contain" src={Images.icons.spring} alt="Spring" />

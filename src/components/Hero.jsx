@@ -17,12 +17,12 @@ const heroSlides = [
    {
      id: 2,
      image: Images.sliders.sliderTop2,
-     title: "NEW COLLECTION",
-     subtitle: "SUMMER 2025",
-     description: "We know how large objects will act, but things on a small scale.",
-     buttonText: "SHOP NOW",
+     title: "BLACK FRIDAY",
+     subtitle: "",
+     description: "We know how large objects will act, but things on a small scale just do not act that way.",
+     buttonText: "START NOW",
      buttonLink: "/productlist",
-     altText: "Summer Collection 2025"
+     altText: ""
    }
  ];
 
@@ -35,7 +35,7 @@ const heroSlides = [
          containerClassName="relative w-full h-screen overflow-hidden"
          slideClassName="w-full h-screen flex-shrink-0 relative"
          imageClassName="w-full h-full object-cover"
-         contentClassName="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white p-4"
+         contentClassName="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2 text-white p-4"
          buttonClassName="inline-block bg-[#2DC071] px-8 py-3 rounded text-white font-bold hover:bg-[#23856D] transition-colors duration-300"
          showIndicators={true}
          showNavigation={true}

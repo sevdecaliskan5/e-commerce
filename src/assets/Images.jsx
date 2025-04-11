@@ -1,5 +1,5 @@
 import sliderTop1 from "./images/sliderTop1.jpg";
-import sliderTop2 from "./images/sliderTop2.png";
+import sliderTop2 from "./images/sliderTop2.jpg";
 import sliderBottom1 from "./images/sliderBottom1.png";
 import sliderBottom2 from "./images/sliderBottom2.png";
 import blueEllipse from "../assets/shapes/Ellipse 14.svg";
