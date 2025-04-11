@@ -7,7 +7,7 @@ import hero5 from "../assets/images/team/teamHero14.png";
 
 export default function TeamHeroPictures() {
   return (
-<div className="w-[1440px] px-4 mx-auto overflow-hidden rounded-lg">
+<div className="max-w-[1440px] px-4 mx-auto overflow-hidden rounded-lg flex flex-wrap">
       <div className="flex flex-col sm:flex-row gap-2 w-full">
         <div className="w-full sm:w-auto overflow-hidden rounded-lg">
           <img

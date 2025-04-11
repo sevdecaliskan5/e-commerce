@@ -10,11 +10,12 @@ const Team = () => {
         <div className="flex flex-col gap-2">
           <h1 className="px-20 sm:px-0 font-bold text-[40px]">Meet Our Team</h1>
         </div>
-        <div className="w-[1034px] mx-auto flex flex-wrap gap-6 justify-between">
+        <div className="max-w-[1034px] mx-auto flex flex-wrap gap-6 justify-between">
           {items.map((item) => (
             <div
               key={item.id}
-              className="w-full sm:w-[30%] lg:w-[30%] font-bold flex flex-col items-center"
+              className="w-full sm:w-full lg:w-[30%] font-bold flex flex-col items-center"
+
             >
               <img
                 className="w-[316px] h-[231px] object-cover"
@@ -25,25 +26,24 @@ const Team = () => {
                 <h5 className="text-base">{item.header}</h5>
                 <h6 className="font-normal text-sm">{item.role}</h6>
                 <div className="flex gap-3 justify-center">
-                <a
-  href={item.facebook}
-  className="text-primary-color hover:text-[#395185] transition-colors"
->
-  <Facebook size={20} />
-</a>
-<a
-  href={item.instagram}
-  className="text-primary-color hover:text-[#E4405F] transition-colors"
->
-  <Instagram size={20} />
-</a>
-<a
-  href={item.twitter}
-  className="text-primary-color hover:text-[#1DA1F2] transition-colors"
->
-  <Twitter size={20} />
-</a>
-
+                  <a
+                    href={item.facebook}
+                    className="text-primary-color hover:text-[#395185] transition-colors"
+                  >
+                    <Facebook size={20} />
+                  </a>
+                  <a
+                    href={item.instagram}
+                    className="text-primary-color hover:text-[#E4405F] transition-colors"
+                  >
+                    <Instagram size={20} />
+                  </a>
+                  <a
+                    href={item.twitter}
+                    className="text-primary-color hover:text-[#1DA1F2] transition-colors"
+                  >
+                    <Twitter size={20} />
+                  </a>
                 </div>
               </div>
             </div>

@@ -14,8 +14,8 @@ const HomeHeader = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
-    <header className="w-full bg-[#1a1e25] text-white text-sm">
-      <div className="max-w-[1440px] mx-auto flex justify-between items-center px-4 py-2">
+    <header className="w-full text-sm">
+      {/* <div className="text-white bg-[#1a1e25] mx-auto flex justify-between items-center px-4 py-2">
         <div className="flex gap-4">
           <span>(225) 555-0118</span>
           <span>michelle.rivera@example.com</span>
@@ -29,15 +29,15 @@ const HomeHeader = () => {
             <Instagram size={16} />
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="bg-white text-[#292929] py-4 px-6 flex justify-between items-center shadow-md">
+      <div className="bg-white max-w-[1322px] mx-auto flex justify-between items-center px-6 py-4 text-sm text-[#292929]">
         <div className="text-xl font-bold">Bandage</div>
 
         <nav className="flex gap-6 items-center">
-          <NavLink to="/" className="flex items-center gap-1">
-            Home
-          </NavLink>
+        <NavLink to="/" className="flex items-center gap-1">
+              Home 
+            </NavLink>
 
           <div
             className="relative"

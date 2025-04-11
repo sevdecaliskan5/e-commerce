@@ -6,6 +6,9 @@ export default {
     ],
     theme: {
       extend: {
+        fontFamily: {
+          playfair: ['Playfair Display', 'serif'],
+        },
         colors: {
           'primary-color': '#23A6F0',
         },
