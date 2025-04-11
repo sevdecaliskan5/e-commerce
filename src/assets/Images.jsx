@@ -48,11 +48,11 @@ import productList10 from "../assets/images/productList/fixed-height-10.png";
 import productList11 from "../assets/images/productList/fixed-height.png";
 import productList12 from "../assets/images/productList/product-cover-5.png";
 
-import category1 from "../assets/images/categories/card-cover-5.png";
-import category2 from "../assets/images/categories/media bg-cover.png";
-import category3 from "../assets/images/categories/media bg-cover2.png";
-import category4 from "../assets/images/categories/media bg-cover3.png";
-import category5 from "../assets/images/categories/media bg-cover4.png";
+import category1 from "../assets/images/categories/kategori1.jpg";
+import category2 from "../assets/images/categories/kategori2.jpg";
+import category3 from "../assets/images/categories/kategori3.jpg";
+import category4 from "../assets/images/categories/kategori4.jpg";
+import category5 from "../assets/images/categories/kategori5.jpg";
 
 import team1 from "../assets/images/team/team1.png";
 import team2 from "../assets/images/team/team2.jpg";

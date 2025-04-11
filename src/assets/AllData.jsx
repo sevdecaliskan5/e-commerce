@@ -1,6 +1,39 @@
 import { Images } from "./Images";
 
 export const AllData = {
+  categories: [
+    {
+      img: Images.categories.category1,
+      title: "CLOTHS",
+      items: "25",
+      key: 1,
+    },
+    {
+      img: Images.categories.category2,
+      title: "SHOES",
+      items: "18",
+      key: 2,
+    },
+    {
+      img: Images.categories.category3,
+      title: "ACCESSORIES",
+      items: "12",
+      key: 3,
+    },
+    {
+      img: Images.categories.category4,
+      title: "BAGS",
+      items: "9",
+      key: 4,
+    },
+    {
+      img: Images.categories.category5,
+      title: "HATS",
+      items: "6",
+      key: 5,
+    },
+  ],
+
   bestSellers: [
     {
       img: Images.homeProductCard.productCard1,
@@ -147,27 +180,27 @@ export const AllData = {
   },
   categories: [
     {
-      category: "CLOTHS",
+      category: "JACKET",
       number: "14 items",
       img: Images.categories.category1,
     },
     {
-      category: "JEANS",
+      category: "SKIRT",
       number: "5 items",
       img: Images.categories.category2,
     },
     {
-      category: "COATS",
+      category: "BLOUSE",
       number: "12 items",
       img: Images.categories.category3,
     },
     {
-      category: "SWEATSHIRTS",
+      category: "PAJAMAS",
       number: "16 items",
       img: Images.categories.category4,
     },
     {
-      category: "T-SHIRTS",
+      category: "SWEATSHIRT",
       number: "24 items",
       img: Images.categories.category5,
     },
@@ -337,18 +370,18 @@ export const AllData = {
       header: "username",
       role: "professsion",
       facebook: "",
-      instagram: ""  ,
+      instagram: "",
       twitter: "",
-      key:1,
+      key: 1,
     },
     {
       img: Images.about.about4,
       header: "username",
       role: "professsion",
       facebook: "",
-      instagram:  "",
+      instagram: "",
       twitter: "",
-      key:2,
+      key: 2,
     },
     {
       img: Images.about.about5,
@@ -357,8 +390,8 @@ export const AllData = {
       facebook: "",
       instagram: "",
       twitter: "",
-      key:3,
-    }
+      key: 3,
+    },
   ],
 
   team: [
@@ -367,18 +400,18 @@ export const AllData = {
       header: "username",
       role: "professsion",
       facebook: "",
-      instagram: ""  ,
+      instagram: "",
       twitter: "",
-      key:1,
+      key: 1,
     },
     {
-      img:Images.team.team2,
+      img: Images.team.team2,
       header: "username",
       role: "professsion",
       facebook: "",
-      instagram:  "",
+      instagram: "",
       twitter: "",
-      key:2,
+      key: 2,
     },
     {
       img: Images.team.team3,
@@ -387,52 +420,52 @@ export const AllData = {
       facebook: "",
       instagram: "",
       twitter: "",
-      key:3,
+      key: 3,
     },
     {
-      img:Images.team.team4,
+      img: Images.team.team4,
       header: "username",
       role: "professsion",
       facebook: "",
-      instagram: ""  ,
+      instagram: "",
       twitter: "",
-      key:4,
+      key: 4,
     },
     {
       img: Images.team.team5,
       header: "username",
       role: "professsion",
       facebook: "",
-      instagram:  "",
+      instagram: "",
       twitter: "",
-      key:5,
+      key: 5,
     },
     {
-      img:Images.team.team6,
+      img: Images.team.team6,
       header: "username",
       role: "professsion",
       facebook: "",
       instagram: "",
       twitter: "",
-      key:6,
+      key: 6,
     },
     {
       img: Images.team.team7,
       header: "username",
       role: "professsion",
       facebook: "",
-      instagram: ""  ,
+      instagram: "",
       twitter: "",
-      key:7,
+      key: 7,
     },
     {
-      img:Images.team.team8,
+      img: Images.team.team8,
       header: "username",
       role: "professsion",
       facebook: "",
-      instagram:  "",
+      instagram: "",
       twitter: "",
-      key:8,
+      key: 8,
     },
     {
       img: Images.team.team9,
@@ -441,7 +474,7 @@ export const AllData = {
       facebook: "",
       instagram: "",
       twitter: "",
-      key:9,
-    }
-  ]
+      key: 9,
+    },
+  ],
 };
