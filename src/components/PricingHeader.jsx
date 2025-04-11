@@ -15,7 +15,7 @@ export default function PricingHeader() {
               Home
             </NavLink>
             <i className="bx bxs-chevron-right text-[#BDBDBD] text-2xl "></i>
-            <p className="mr-1 ">Team</p>
+            <p className="mr-1 ">Pricing</p>
           </div>
         </div>
       </div>

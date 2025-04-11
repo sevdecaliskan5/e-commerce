@@ -4,6 +4,7 @@ import PricingHeader from "../components/PricingHeader";
 import Pricing from "../components/Pricing";
 import AboutClients from "../components/AboutClients";
 import PricingFaq from "../components/PricingFaq";
+import TeamCTA from "../components/TeamCTA";
 
 
 function PricingPage() {
@@ -14,6 +15,7 @@ function PricingPage() {
 <Pricing/>
 <AboutClients />
 <PricingFaq/>
+<TeamCTA/>
 <Footer/>
 </>
   );
