@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CircleCheck } from "lucide-react";
 
 export default function Pricing() {
   const [toggle, setToggle] = useState(false);
@@ -33,20 +34,20 @@ export default function Pricing() {
             onClick={changePricingType}
           >
             {pricingType === "Month" && (
-              <i
+              <CircleCheck
                 className={
-                  "bx bxs-circle text-[#D0D0D0]  md:w-6 md:h-6 md:text-2xl text-xl md:pb-8  transform  duration-700 ease-in-out " +
+                  "text-[#D0D0D0] md:w-6 md:h-6 md:text-2xl text-xl md:pb-8  transform  duration-700 ease-in-out " +
                   (toggle ? null : toggleButtonClass)
                 }
-              ></i>
+              />
             )}
             {pricingType === "Year" && (
-              <i
+              <CircleCheck
                 className={
-                  " bx bxs-circle text-[#D0D0D0] md:text-2xl text-xl  md:w-6 md:h-6 md:pb-8  transform  duration-700 ease-in-out " +
+                  "text-[#D0D0D0] md:text-2xl text-xl  md:w-6 md:h-6 md:pb-8  transform  duration-700 ease-in-out " +
                   (toggle ? null : toggleButtonClass)
                 }
-              ></i>
+              />
             )}
           </button>
           <p className="text-[#252B42] text-base">Yearly</p>
@@ -54,17 +55,17 @@ export default function Pricing() {
             Save {save}
           </button>
         </div>
-        <div className="mobile-col-flex gap-6 sm:gap-0 sm:items-end">
-          <div className="sm:h-[650px] sm:w-[380px] flex-none">
+        <div className="flex flex-col sm:flex-row gap-6 sm:gap-0 sm:items-end">
+          <div className="sm:h-[664px] sm:w-[329px] flex-none">
             <div className="flex flex-col gap-[35px] py-[50px] px-10 text-[#252B42] items-center bg-white border border-primary-color rounded-lg">
               <h3 className="font-bold text-2xl">FREE</h3>
               <h5 className="font-bold text-base text-[#737373]">
                 Organize across all apps by hand
               </h5>
               <div className="flex gap-[10px] text-primary-color">
-                <h2 className=" font-bold text-[40px]">0</h2>
+                <h2 className="text-[#8EC2F2] font-bold text-[40px]">0</h2>
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-[] text-2xl font-bold">$</h3>
+                  <h3 className="text-[#8EC2F2] text-2xl font-bold">$</h3>
                   <h5 className="text-[#8EC2F2] font-bold text-sm">
                     Per {pricingType}
                   </h5>
@@ -72,41 +73,43 @@ export default function Pricing() {
               </div>
               <div className="flex flex-col gap-[15px]">
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#2dc071] text-5xl"></i>
+                  <CircleCheck className="text-[#2dc071] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#2dc071] text-5xl"></i>
+                  <CircleCheck className="text-[#2dc071] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#2dc071] text-5xl"></i>
+                  <CircleCheck className="text-[#2dc071] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#BDBDBD] text-5xl"></i>
+                  <CircleCheck className="text-[#BDBDBD] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#BDBDBD] text-5xl"></i>
+                  <CircleCheck className="text-[#BDBDBD] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
               </div>
-              <div className="bg-[#252B42] text-white py-[15px] px-10 text-sm font-bold">
-                <button>Try for free</button>
+              <div className="">
+                <button className="bg-[#252B42] text-white px-10 py-[15px] text-sm font-bold">
+                  Try for free
+                </button>
               </div>
             </div>
           </div>
-          <div className="sm:w-[400px] sm:flex-1">
+          <div className="sm:w-[329px] sm:h-[704px] sm:flex-1 flex-grow">
             <div className="flex flex-col gap-[35px] py-[50px] px-10 text-white items-center bg-[#252B42] border border-primary-color rounded-lg">
               <h3 className="font-bold text-2xl">STANDARD</h3>
               <h5 className="font-bold text-base text-[#737373]">
                 Organize across all apps by hand
               </h5>
               <div className="flex gap-[10px] text-primary-color">
-                <h2 className=" font-bold text-[40px]">9.99</h2>
+                <h2 className="text-[#8EC2F2] font-bold text-[40px]">9.99</h2>
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-[] text-2xl font-bold">$</h3>
+                  <h3 className="text-[#8EC2F2] text-2xl font-bold">$</h3>
                   <h5 className="text-[#8EC2F2] font-bold text-sm">
                     Per {pricingType}
                   </h5>
@@ -114,41 +117,43 @@ export default function Pricing() {
               </div>
               <div className="flex flex-col gap-[15px]">
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#2dc071] text-5xl"></i>
+                  <CircleCheck className="text-[#2dc071] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#2dc071] text-5xl"></i>
+                  <CircleCheck className="text-[#2dc071] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#2dc071] text-5xl"></i>
+                  <CircleCheck className="text-[#2dc071] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#BDBDBD] text-5xl"></i>
+                  <CircleCheck className="text-[#BDBDBD] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#BDBDBD] text-5xl"></i>
+                  <CircleCheck className="text-[#BDBDBD] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
               </div>
-              <div className="bg-primary-color text-white py-[15px] px-10 text-sm font-bold">
-                <button>Try for free</button>
+              <div className="">
+                <button className="bg-primary-color text-white px-10 py-[15px] text-sm font-bold">
+                  Try for free
+                </button>
               </div>
             </div>
           </div>
-          <div className="sm:h-[650px] sm:w-[380px] flex-none">
+          <div className="sm:h-[664px] sm:w-[329px] flex-none">
             <div className="flex flex-col gap-[35px] py-[50px] px-10 text-[#252B42] items-center bg-white border border-primary-color rounded-lg">
               <h3 className="font-bold text-2xl">PREMIUM</h3>
               <h5 className="font-bold text-base text-[#737373]">
                 Organize across all apps by hand
               </h5>
               <div className="flex gap-[10px] text-primary-color">
-                <h2 className=" font-bold text-[40px]">19.99</h2>
+                <h2 className="text-[#8EC2F2] font-bold text-[40px]">19.99</h2>
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-[] text-2xl font-bold">$</h3>
+                  <h3 className="text-[#8EC2F2] text-2xl font-bold">$</h3>
                   <h5 className="text-[#8EC2F2] font-bold text-sm">
                     Per {pricingType}
                   </h5>
@@ -156,28 +161,30 @@ export default function Pricing() {
               </div>
               <div className="flex flex-col gap-[15px]">
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#2dc071] text-5xl"></i>
+                  <CircleCheck className="text-[#2dc071] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#2dc071] text-5xl"></i>
+                  <CircleCheck className="text-[#2dc071] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#2dc071] text-5xl"></i>
+                  <CircleCheck className="text-[#2dc071] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#BDBDBD] text-5xl"></i>
+                  <CircleCheck className="text-[#BDBDBD] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
                 <div className="flex gap-[10px] font-bold text-sm items-center">
-                  <i className="bx bxs-check-circle text-[#BDBDBD] text-5xl"></i>
+                  <CircleCheck className="text-[#BDBDBD] text-5xl" />
                   <h6>Unlimited product updates</h6>
                 </div>
               </div>
-              <div className="bg-primary-color text-white py-[15px] px-10 text-sm font-bold">
-                <button>Try for free</button>
+              <div className="">
+                <button className="bg-primary-color text-white px-10 py-[15px] text-sm font-bold">
+                  Try for free
+                </button>
               </div>
             </div>
           </div>
