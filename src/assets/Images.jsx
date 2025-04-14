@@ -1,7 +1,6 @@
 import sliderTop1 from "./images/sliderTop1.jpg";
 import sliderTop2 from "./images/sliderTop2.jpg";
 import sliderBottom1 from "./images/sliderBottom1.png";
-import sliderBottom2 from "./images/sliderBottom2.png";
 import blueEllipse from "../assets/shapes/Ellipse 14.svg";
 import greenEllipse from "../assets/shapes/Ellipse 15.svg";
 import orangeEllipse from "../assets/shapes/Ellipse 16.svg";
@@ -77,7 +76,6 @@ export const Images = {
     sliderTop1,
     sliderTop2,
     sliderBottom1,
-    sliderBottom2,
   },
 
   icons: {

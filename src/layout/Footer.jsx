@@ -145,7 +145,7 @@ function Footer() {
             <h5 className="font-mont-h5 text-base font-bold mb-4">
               Get In Touch
             </h5>
-            <div className="flex flex-col md:flex-row gap-2">
+            <div className="flex flex-col md:flex-row">
               <input
                 type="email"
                 id="email"
@@ -156,7 +156,7 @@ function Footer() {
               />
               <button
                 type="submit"
-                className="bg-[#23A6F0] text-white rounded-md md:rounded-l-none px-4 py-4 md:py-2 hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 text-sm font-bold"
+                className="bg-[#23A6F0] text-white rounded-md md:rounded-l-none px-4 py-4  h-[58px] hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 text-sm font-bold"
               >
                 Subscribe
               </button>

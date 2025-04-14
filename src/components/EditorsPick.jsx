@@ -14,7 +14,7 @@ function EditorsPick() {
           </p>
         </div>
         <div className="bg-[#FAFAFA] h-[500px] mt-10 pb-10">
-          <div className="flex gap-5 w-fit mx-auto flex-wrap font-bold text-base">
+        <div className="flex flex-wrap gap-5 justify-center w-full font-bold text-base">
             <div className="relative">
               <img
                 src={editorman}
