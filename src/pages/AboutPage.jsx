@@ -16,7 +16,7 @@ function AboutPage() {
 <AboutHeader/>
 <AboutContent/>
 <AboutStats/>
-{/* <AboutVideo/> */}
+<AboutVideo/>
 <AboutTeam/>
 <AboutClients/>
 <AboutTestimonials/>
