@@ -2,11 +2,11 @@ import React, { useState, useCallback, useEffect } from "react";
 
 const Slider = ({
   slides = [],
-  containerClassName = "relative w-full h-screen overflow-hidden",
-  slideClassName = "w-full h-screen flex-shrink-0 relative",
-  imageClassName = "h-full w-auto object-contain",
-  contentClassName = "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white p-4",
-  buttonClassName = "inline-block bg-[#2DC071] px-8 py-3 rounded text-white font-bold hover:bg-[#23856D] transition-colors duration-300",
+  containerClassName = "relative w-full min-h-[500px] md:h-screen overflow-hidden",
+  slideClassName = "w-full h-full flex-shrink-0 relative",
+  imageClassName = "w-full h-full object-cover",
+  contentClassName = "absolute top-1/2 left-4 md:left-20 transform -translate-y-1/2 text-white max-w-md",
+  buttonClassName = "inline-block bg-[#2DC071] px-10 py-4 rounded text-white font-semibold hover:bg-[#23856D] transition-all duration-300",
   showIndicators = true,
   showNavigation = true,
   autoPlay = false,
@@ -38,11 +38,9 @@ const Slider = ({
 
   useEffect(() => {
     if (!autoPlay) return;
-
     const timer = setInterval(() => {
       goToNextSlide();
     }, autoPlayInterval);
-
     return () => clearInterval(timer);
   }, [autoPlay, autoPlayInterval, goToNextSlide]);
 
@@ -50,7 +48,6 @@ const Slider = ({
     const timer = setTimeout(() => {
       setIsTransitioning(false);
     }, 500);
-
     return () => clearTimeout(timer);
   }, [currentSlide]);
 
@@ -62,26 +59,26 @@ const Slider = ({
       >
         {slides.map((slide) => (
           <div key={slide.id} className={slideClassName}>
-            <div className="w-full h-full flex items-center justify-center">
-              <img
-                src={slide.image}
-                alt={slide.altText || `${slide.title} - ${slide.subtitle}`}
-                className={imageClassName}
-                loading="lazy"
-              />
-            </div>
+            <img
+              src={slide.image}
+              alt={slide.altText || `${slide.title} - ${slide.subtitle}`}
+              className={imageClassName}
+              loading="lazy"
+            />
 
             <div className={contentClassName}>
               {slide.subtitle && (
-                <h5 className="text-lg font-bold mb-2">{slide.subtitle}</h5>
+                <h5 className="text-md md:text-lg font-semibold mb-2 uppercase tracking-widest">
+                  {slide.subtitle}
+                </h5>
               )}
               {slide.title && (
-                <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                <h1 className="text-3xl md:text-6xl font-extrabold leading-tight mb-4">
                   {slide.title}
                 </h1>
               )}
               {slide.description && (
-                <p className="text-lg mb-8 max-w-2xl mx-auto">
+                <p className="text-base md:text-lg mb-6">
                   {slide.description}
                 </p>
               )}
@@ -103,7 +100,7 @@ const Slider = ({
             aria-label="Previous slide"
           >
             <svg
-              className="w-6 h-6"
+              className="w-8 h-8 text-gray-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -123,7 +120,7 @@ const Slider = ({
             aria-label="Next slide"
           >
             <svg
-              className="w-6 h-6"
+              className="w-8 h-8 text-gray-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -158,3 +155,4 @@ const Slider = ({
 };
 
 export default Slider;
+

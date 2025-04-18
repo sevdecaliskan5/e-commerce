@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div className="w-screen">
       <div className="bg-[#FAFAFA] py-8 md:py-[60px]">
-        <div className="container mx-auto px-4 md:px-0">
+        <div className="max-w-[1050px] container mx-auto px-4 md:px-0">
           <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-0">
             <h3 className="font-mont-h3 text-2xl md:text-3xl">Bandage</h3>
             <div className="flex gap-4">
@@ -25,7 +25,7 @@ function Footer() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-0 py-8 md:pt-[3%]">
+      <div className="max-w-[1050px] container mx-auto px-4 md:px-0 py-12 md:pt-[3%]">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-0">
           <div className="flex flex-col">
             <h5 className="font-mont-h5 text-base font-bold mb-4">
@@ -169,8 +169,8 @@ function Footer() {
       </div>
 
       <div className="bg-[#FAFAFA] mt-8 md:mt-[70px]">
-        <div className="container mx-auto px-4 md:px-0 py-4 md:py-6">
-          <p className="font-mont-h5 text-sm text-[#737373] text-center">
+        <div className="max-w-[1050px] container mx-auto px-4 md:px-0 py-4 md:py-6">
+          <p className="font-mont-h5 text-sm text-[#737373] text-start">
             Made With Love By Finland All Right Reserved
           </p>
         </div>

@@ -2,23 +2,32 @@ import couple from "../assets/images/featuredImages/couple.png";
 
 function PartOf() {
   return (
-    <div className="flex flex-wrap max-w-[1439px] items-center mx-auto">
-      <div className="">
-        <img className="w-[725px] h-[774px] object-cover" src={couple} />
+    <div className="flex flex-col lg:flex-row max-w-[1440px] w-full mx-auto px-4 lg:px-[135px] py-[60px] items-center gap-[60px]">
+
+      <div className="w-full lg:w-1/2">
+        <img
+          src={couple}
+          alt="Couple"
+          className="w-full max-w-[725px] h-auto object-cover"
+        />
       </div>
-      <div className="mx-auto my-auto flex flex-col gap-7">
-        <h5 className="text-base font-bold text-[#BDBDBD]">SUMMER 2025</h5>
-        <h1 className="text-[2.5rem] text-[#252B42] font-bold max-w-sm">
+
+      <div className="w-full lg:w-1/2 flex flex-col gap-6 sm:text-center lg:text-start lg:justify-start">
+        <h5 className="text-sm font-bold text-[#BDBDBD] tracking-[0.2px]">
+          SUMMER 2025
+        </h5>
+        <h1 className="text-[40px] lg:text-[58px]  font-bold text-[#252B42] leading-[80px] tracking-[0.2px] max-w-[525px] sm:mx-auto lg:mx-0">
           Part of the Neural Universe
         </h1>
-        <h4 className="text-[#737373] text-xl font-normal max-w-sm">
+        <p className="text-base font-normal text-[#737373] lg:text-start leading-7 tracking-[0.2px] max-w-[376px] sm:mx-auto lg:mx-0">
           We know how large objects will act, but things on a small scale.
-        </h4>
-        <div className="flex justify-between">
-          <button className="px-10 py-4 bg-[#2DC071] rounded-md text-white">
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 mt-6 justify-center lg:justify-start">
+          <button className="bg-[#2DC071] text-white text-base font-bold px-[40px] py-[15px] rounded hover:bg-[#23856D] transition-colors duration-300">
             BUY NOW
           </button>
-          <button className="px-10 py-4 text-[#2DC071] border-[#2DC071] border-[1px] rounded-md font-bold">
+          <button className="text-[#2DC071] border border-[#2DC071] text-base font-bold px-[40px] py-[15px] rounded hover:bg-[#23856D] hover:text-white transition-colors duration-300">
             READ MORE
           </button>
         </div>
@@ -26,4 +35,5 @@ function PartOf() {
     </div>
   );
 }
+
 export default PartOf;

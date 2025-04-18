@@ -5,7 +5,7 @@ import HomeBestSellers from "../layout/HomeBestSellers";
 import Slider from "../components/Slider";
 import FeaturedPosts from "../components/FeaturedPosts";
 import PartOf from "../components/PartOf";
-import {Images} from "../assets/Images";
+import { Images } from "../assets/Images";
 
 const sliderTwoSlides = [
   {
@@ -13,23 +13,25 @@ const sliderTwoSlides = [
     image: Images.sliders.sliderBottom1,
     title: "Vita Classic Product",
     subtitle: "SUMMER 2025",
-    description: "We know how large objects will act, We know how are objects will act, We know",
+    description:
+      "We know how large objects will act, We know how are objects will act, We know",
     buttonText: "ADD TO CART",
     buttonLink: "/productlist",
     altText: "Vita Classic Product",
-    price: "$16.48"
+    price: "$16.48",
   },
   {
     id: 2,
     image: Images.sliders.sliderBottom2,
     title: "Vita Classic Product",
     subtitle: "SUMMER 2025",
-    description: "We know how large objects will act, We know how are objects will act, We know",
+    description:
+      "We know how large objects will act, We know how are objects will act, We know",
     buttonText: "ADD TO CART",
     buttonLink: "/productlist",
     altText: "Vita Classic Product",
-    price: "$16.48"
-  }
+    price: "$16.48",
+  },
 ];
 
 function HomePage() {
@@ -39,7 +41,7 @@ function HomePage() {
       <EditorsPick />
       <HomeBestSellers />
       <div className="mt-20">
-         <Slider 
+      <Slider 
            slides={sliderTwoSlides}
            containerClassName="relative w-full h-[711px] overflow-hidden bg-[#23856D]"
            slideClassName="w-full h-full flex-shrink-0 relative"
@@ -51,11 +53,11 @@ function HomePage() {
            autoPlay={true}
            autoPlayInterval={5000}
          />
-       </div>
-       <PartOf />
-       <FeaturedPosts />
-       <Footer />
-       </>
-   );
- }
- export default HomePage;
+      </div>
+      <PartOf />
+      <FeaturedPosts />
+      <Footer />
+    </>
+  );
+}
+export default HomePage;
