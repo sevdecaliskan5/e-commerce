@@ -70,12 +70,32 @@ import blog4 from "../assets/images/blog/blog4.png";
 import blog5 from "../assets/images/blog/blog5.png";
 import blog6 from "../assets/images/blog/blog6.png";
 
+import Pcard1 from "../assets/images/bestsellerProducts/product-cover-1.svg";
+import Pcard2 from "../assets/images/bestsellerProducts/product-cover-2.svg";
+import Pcard3 from "../assets/images/bestsellerProducts/product-cover-3.svg";
+import Pcard4 from "../assets/images/bestsellerProducts/product-cover-4.svg";
+import Pcard5 from "../assets/images/bestsellerProducts/product-cover-5.svg";
+import Pcard6 from "../assets/images/bestsellerProducts/product-cover-6.svg";
+import Pcard7 from "../assets/images/bestsellerProducts/product-cover-7.svg";
+import Pcard8 from "../assets/images/bestsellerProducts/product-cover-8.svg";
+
 
 export const Images = {
   sliders: {
     sliderTop1,
     sliderTop2,
     sliderBottom1,
+  },
+
+  bestsellerProducts: {
+    Pcard1,
+    Pcard2,
+    Pcard3,
+    Pcard4,
+    Pcard5,
+    Pcard6,
+    Pcard7,
+    Pcard8,
   },
 
   icons: {
