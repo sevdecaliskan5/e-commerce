@@ -21,13 +21,14 @@ const InnerHeader = () => {
             </NavLink>
         </nav>
         <div className="flex gap-4 items-center">
-          <a href="#" className="text-blue-600 font-semibold flex items-center gap-1">
-            <LogIn size={16} />
+          <NavLink to="/login" className="text-blue-600 font-semibold flex items-center gap-1">
+          <LogIn size={16} />
             Login
-          </a>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm">
-            Become a member →
-          </button>
+          </NavLink>
+
+          <NavLink to="/signup" className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm">
+          Become a member →
+          </NavLink>
         </div>
       </div>
     </header>
