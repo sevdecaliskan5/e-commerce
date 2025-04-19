@@ -8,7 +8,7 @@ export default function AboutClients() {
         <div className="w-full max-w-[1034px] px-4">
           <div className="py-12 md:py-20 flex flex-col items-center text-center gap-6">
             <div className="flex flex-col gap-2">
-              <h1 className="font-bold text-3xl md:text-[40px]">
+              <h1 className="font-bold text-3xl mb-2 md:text-[40px]">
                 Big Companies Are Here
               </h1>
               <h6 className="font-normal text-sm max-w-[469px] mx-auto text-[#737373]">

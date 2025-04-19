@@ -6,7 +6,7 @@ function Footer() {
       <div className="bg-[#FAFAFA] py-8 md:py-[60px]">
         <div className="max-w-[1050px] container mx-auto px-4 md:px-0">
           <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-0">
-            <h3 className="font-mont-h3 text-2xl md:text-3xl">Bandage</h3>
+            <h3 className="font-mont-h3 text-2xl font-bold md:text-3xl">Bandage</h3>
             <div className="flex gap-4">
               <Facebook
                 size={20}
