@@ -20,8 +20,6 @@ import CartPage from "./pages/CartPage";
 import ProtectedPage from "./pages/ProtectedPage";
 import ProductListPage from "./pages/ProductListPage";
 
-
-
 function App() {
   const dispatch = useDispatch();
 
@@ -42,7 +40,7 @@ function App() {
         <Route path="/shopping/:gender?/:category?" exact>
           <ProductListPage />
         </Route>
-        <Route path="/product" exact>
+        <Route path="/product/:id" exact>
           <ProductDetailPage />
         </Route>
         <Route exact path="/about">

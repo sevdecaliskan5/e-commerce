@@ -190,7 +190,7 @@ export const AllData = {
       img: Images.categories.category2,
     },
     {
-      category: "BLOUSE",
+      category: "T-SHIRT",
       number: "12 items",
       img: Images.categories.category3,
     },

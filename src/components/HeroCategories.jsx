@@ -1,7 +1,7 @@
 import React from "react";
 import { AllData } from "../assets/AllData";
 
-const HeroCategories = () => {
+const HeroCategories = ({ onCategorySelect }) => {
   const items = AllData.categories;
 
   return (
@@ -9,6 +9,7 @@ const HeroCategories = () => {
       {items.map((item) => (
         <div
           key={item.key}
+          onClick={() => onCategorySelect(item.key)}
           className="relative h-[238px] w-full cursor-pointer overflow-hidden rounded shadow-md group"
         >
           <img
