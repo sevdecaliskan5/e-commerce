@@ -1,63 +1,69 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { selectCartList, selectTotals } from "../features/cart/cartSlice";
 
 const OrderSummary = () => {
-  const { totalAmount } = useSelector((store) => store.shoppingCart);
+  const cartProducts = useSelector(selectCartList);
+  const { totalAmount } = useSelector(selectTotals);
 
-  // Kargo bedava mı?
   const isFreeShipping = totalAmount >= 150;
   const shippingCost = isFreeShipping ? 0 : 30;
   const finalAmount = totalAmount + shippingCost;
 
-  return (
-    <div className="w-96 mx-auto sm:py-10">
-      <div className="flex flex-col gap-4 text-gray-600 pt-3 bg-white shadow-lg p-6">
-        <h5 className="py-3 font-bold text-sm text-black">ORDER SUMMARY :</h5>
+  const getTotalItemsCount = () => {
+    return cartProducts.reduce((total, product) => total + product.productQuantity, 0);
+  };
 
-        <div className="flex justify-between">
-          <span className="text-sm">Cart Total :</span>
-          <span className="text-sm text-black font-bold">
-            {totalAmount.toFixed(2)} TL
-          </span>
+  return (
+    <div className="w-full max-w-md mx-auto py-10 px-4">
+      <div className="bg-white rounded-2xl shadow-md p-6 text-gray-700 space-y-4 border border-gray-200">
+        <h2 className="text-lg font-bold text-gray-900 border-b pb-3">
+          🧾 Order Summary
+        </h2>
+
+        <div className="flex justify-between text-sm">
+          <span>Cart Total</span>
+          <span className="font-medium text-gray-900">{totalAmount.toFixed(2)} TL</span>
         </div>
 
-        <div className="flex justify-between">
-          <span className="text-sm">Shipping Cost :</span>
-          <span className="text-sm text-black font-bold">
-            {shippingCost.toFixed(2)} TL
-          </span>
+        <div className="flex justify-between text-sm">
+          <span>Shipping Cost</span>
+          <span className="font-medium text-gray-900">{shippingCost.toFixed(2)} TL</span>
         </div>
 
         {isFreeShipping && (
-          <div className="flex justify-between">
-            <span className="text-sm w-2/3">
-              Free shipping for orders of 150 TL and above
-            </span>
-            <span className="text-sm text-orange-700 font-bold">-30 TL</span>
+          <div className="flex justify-between text-xs text-green-600 bg-green-50 p-2 rounded-md">
+            <span>🎉 Free shipping for orders above 150 TL</span>
+            <span className="font-semibold">-30 TL</span>
           </div>
         )}
 
-        <hr className="w-full border-t" />
+        <hr className="border-t" />
 
-        <div className="flex justify-between">
-          <span className="text-sm text-black font-bold">TOTAL :</span>
-          <span className="text-sm text-orange-700 font-bold">
-            {finalAmount.toFixed(2)} TL
+        <div className="flex justify-between text-base font-semibold text-gray-800">
+          <span>Total</span>
+          <span className="text-orange-600">
+            {(finalAmount - (isFreeShipping ? 30 : 0)).toFixed(2)} TL
           </span>
+        </div>
+
+        <div className="flex justify-between text-sm pt-1">
+          <span>Total Items</span>
+          <span className="font-medium">{getTotalItemsCount()} items</span>
         </div>
 
         <input
           type="text"
-          placeholder="Discount code"
-          className="text-center w-full p-2 border border-gray-400 rounded"
+          placeholder="🎁 Discount code"
+          className="w-full px-4 py-2 mt-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
 
         <NavLink
           to="/order"
-          className="h-full w-full bg-orange-800 text-white p-4 rounded-md text-center font-semibold"
+          className="block w-full text-center bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-xl font-semibold transition duration-200"
         >
-          CHECKOUT
+          Proceed to Checkout
         </NavLink>
       </div>
     </div>
@@ -65,3 +71,6 @@ const OrderSummary = () => {
 };
 
 export default OrderSummary;
+
+
+
