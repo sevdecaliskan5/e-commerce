@@ -2,24 +2,23 @@ import { useForm } from "react-hook-form";
 import { Spinner } from "@material-tailwind/react";
 import { ToastContainer, toast } from "react-toastify";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
 import { fetchRolesActionCreator } from "../store/actions/globalAction";
 import { useDispatch, useSelector } from "react-redux";
-
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { API } from "../api/api";
+import { Link } from "react-router-dom";
 
 const Signup = () => {
   const [sellerRole, setSellerRole] = useState(false);
   const [spinner, setSpinner] = useState(false);
   const dispatch = useDispatch();
-
   const roles = useSelector((store) => store.global.roles);
+  const push = useHistory();
 
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
     watch,
   } = useForm({
     defaultValues: {
@@ -32,52 +31,38 @@ const Signup = () => {
     mode: "onChange",
   });
 
-  const push = useHistory();
-
   const onFormSubmit = (formData) => {
-    let postData = {};
-    if (formData.role_id !== "2") {
-      postData = {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-        role_id: formData.role_id,
-      };
-    } else if (formData.role_id === "2") {
-      console.log("else");
-      postData = {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-        role_id: formData.role_id,
-        store: {
-          name: formData.store.name,
-          tax_no: formData.store.tax_no,
-          bank_account: formData.store.bank_account,
-        },
+    let postData = {
+      name: formData.name,
+      email: formData.email,
+      password: formData.password,
+      role_id: formData.role_id,
+    };
+
+    if (formData.role_id === "2") {
+      postData.store = {
+        name: formData.store.name,
+        tax_no: formData.store.tax_no,
+        bank_account: formData.store.bank_account,
       };
     }
 
     setSpinner(true);
-    console.log("signup onsubmit formdata:", postData);
     API.post("signup", postData)
       .then((res) => {
-        console.log("signup onsubmit res:", res);
         toast(res.data.message);
         setTimeout(() => {
           push.push("/login");
         }, 2000);
       })
-      .catch((err) => {
+      .catch(() => {
         setSpinner(false);
-        console.error(err);
-        toast.error("Login olurken bir hata ile karşılaşıldı!");
+        toast.error("Kayıt olurken bir hata oluştu!");
       });
   };
 
   const changeOptionHandle = (e) => {
-    const selectedId = e.target.value;
-    selectedId === "2" ? setSellerRole(true) : setSellerRole(false);
+    setSellerRole(e.target.value === "2");
   };
 
   useEffect(() => {
@@ -85,55 +70,57 @@ const Signup = () => {
   }, []);
 
   return (
-    <div className="sm:w-[800px] w-full m-auto ">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <ToastContainer />
       <div className="shadow-xl shadow-blue-gray-300 border-light-green-50 flex flex-col justify-center items-center gap-4 py-28 m-10">
-        <i className="bx bx-lock px-4 py-3 bg-primary-color rounded-full text-3xl text-center"></i>
-        <div className="w-[35rem] flex justify-center items-center gap-20 ">
-          {" "}
-          <NavLink
-            to="/login"
-            className="font-bold text-2xl hover:text-primary-color underline "
-          >
-            Login
-          </NavLink>
-          <NavLink
-            to="/signup"
-            className="font-bold text-2xl hover:text-primary-color underline "
-          >
-            Sign Up
-          </NavLink>
+        {/* anasayfa icon */}
+        <Link to="/" className="absolute top-6 left-6 text-2xl text-blue-600 hover:text-blue-800">
+          🏠
+        </Link>
+        </div>
+      <div className="w-full max-w-2xl bg-white shadow-2xl rounded-3xl p-10 space-y-6">
+        <div className="flex flex-col items-center space-y-4">
+          <i className="bx bx-lock text-5xl text-white bg-primary-color p-4 rounded-full shadow-md"></i>
+          <div className="flex justify-center gap-10">
+            <NavLink
+              to="/login"
+              className="text-xl font-semibold text-gray-600 hover:text-primary-color underline transition"
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to="/signup"
+              className="text-xl font-semibold text-gray-600 hover:text-primary-color underline transition"
+            >
+              Sign Up
+            </NavLink>
+          </div>
         </div>
 
-        <form
-          onSubmit={handleSubmit(onFormSubmit)}
-          className=" container m-auto  flex flex-col justify-center items-center px-2 "
-        >
-          <div className="flex sm:flex-row flex-col gap-4 w-full container m-auto justify-center items-center">
-            <div className="sm:w-[35rem] w-full flex flex-col ">
-              <label className="font-bold text-xl p-3">Name:</label>
-              <input
-                autoFocus
-                placeholder="Name"
-                className="p-4 rounded-md border border-[#DADADA] text-black"
-                {...register("name", {
-                  required: "Name is required!",
-                  minLength: {
-                    value: 3,
-                    message: "At least 3 char is must be",
-                  },
-                })}
-                invalid={!!errors.name?.message}
-              />
-              <div className="text-red-600">{errors.name?.message}</div>
-            </div>
+        <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-6">
+          <div>
+            <label className="block text-gray-700 font-bold mb-2">Name</label>
+            <input
+              autoFocus
+              placeholder="Name"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-color transition"
+              {...register("name", {
+                required: "Name is required!",
+                minLength: {
+                  value: 3,
+                  message: "At least 3 characters",
+                },
+              })}
+            />
+            <p className="text-sm text-red-600 mt-1">{errors.name?.message}</p>
           </div>
-          <div className=" flex flex-col sm:w-[35rem] w-full ">
-            <label className="font-bold text-xl p-3">E-mail:</label>
+
+          <div>
+            <label className="block text-gray-700 font-bold mb-2">E-mail</label>
             <input
               placeholder="E-mail"
-              className="p-4 rounded-md border border-[#DADADA] text-black"
               type="email"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-color transition"
               {...register("email", {
                 required: "Email is required!",
                 pattern: {
@@ -141,16 +128,16 @@ const Signup = () => {
                   message: "Email is not valid",
                 },
               })}
-              invalid={!!errors.email?.message}
             />
-            <div className="text-red-600">{errors.email?.message}</div>
+            <p className="text-sm text-red-600 mt-1">{errors.email?.message}</p>
           </div>
-          <div className=" flex flex-col sm:w-[35rem] w-full ">
-            <label className="font-bold text-xl p-3">Password:</label>
+
+          <div>
+            <label className="block text-gray-700 font-bold mb-2">Password</label>
             <input
-              placeholder="Password"
-              className={`p-4 rounded-md border border-[#DADADA] text-black`}
               type="password"
+              placeholder="Password"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-color transition"
               {...register("password", {
                 required: "Password is required.",
                 minLength: {
@@ -158,122 +145,104 @@ const Signup = () => {
                   message: "Must be at least 8 characters",
                 },
                 pattern: {
-                  value:
-                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{6,64}$/,
-                  message:
-                    "Your password must contain uppercase letters, lowercase letters, numbers and special characters.",
+                  value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{6,64}$/,
+                  message: "Include upper, lower, number, and special char.",
                 },
               })}
             />
-            <div className="text-red-600 invalid-feedback">
-              {errors.password?.message}
-            </div>
+            <p className="text-sm text-red-600 mt-1">{errors.password?.message}</p>
           </div>
 
-          <div className=" flex flex-col sm:w-[35rem] w-full ">
-            <label className="font-bold text-xl p-3">Confirm Password:</label>
+          <div>
+            <label className="block text-gray-700 font-bold mb-2">Confirm Password</label>
             <input
-              type={"password"}
-              id="password2"
+              type="password"
+              placeholder="Confirm Password"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-color transition"
               {...register("confirmPassword", {
-                required: "Password needs to match exactly!!",
-                validate: (value) => {
-                  return (
-                    value === watch("password") || "Passwords do not match!!"
-                  );
-                },
+                required: "Confirmation is required.",
+                validate: (value) =>
+                  value === watch("password") || "Passwords do not match!",
               })}
-              className="p-4 rounded-md border border-[#DADADA] text-black"
-              placeholder="***************"
             />
-            <div className="text-red-600 invalid-feedback">
-              {errors.confirmPassword?.message}
-            </div>
+            <p className="text-sm text-red-600 mt-1">{errors.confirmPassword?.message}</p>
           </div>
 
-          <div className="flex flex-col sm:w-[35rem] w-full ">
-            <label className="font-bold text-xl p-3">Role:</label>
-
+          <div>
+            <label className="block text-gray-700 font-bold mb-2">Role</label>
             <select
-              className="p-4 rounded-md border border-[#DADADA] text-black"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-color transition"
               {...register("role_id")}
-              onClick={(e) => changeOptionHandle(e)}
+              onChange={changeOptionHandle}
             >
               {roles?.map((roleData) => (
-                <option
-                  key={roleData.id}
-                  value={roleData.id}
-                  className=" text-lg font-bold"
-                >
+                <option key={roleData.id} value={roleData.id}>
                   {roleData.name}
                 </option>
               ))}
             </select>
           </div>
+
           {sellerRole && (
-            <div className="sm:w-[1050px] w-full flex flex-col justify-center items-center gap-4">
-              <div className=" flex flex-col sm:w-[35rem] w-full ">
-                <label className="font-bold text-xl p-3">Store Name:</label>
+            <>
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">Store Name</label>
                 <input
                   placeholder="Store Name"
-                  className="p-4 rounded-md border border-[#DADADA] text-black"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-color transition"
                   {...register("store.name", {
                     required: "Store name is required!",
                     minLength: {
                       value: 3,
-                      message: "At least 3 characters must be entered",
+                      message: "Minimum 3 characters",
                     },
                   })}
                 />
-                <div className="text-red-600">
-                  {errors.store?.name?.message}
-                </div>
+                <p className="text-sm text-red-600 mt-1">{errors.store?.name?.message}</p>
               </div>
-              <div className=" flex flex-col sm:w-[35rem] w-full ">
-                <label className="font-bold text-xl p-3">Store Tax ID:</label>
+
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">Tax ID</label>
                 <input
                   placeholder="TXXXXVXXXXXX"
-                  className="p-4 rounded-md border border-[#DADADA] text-black"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-color transition"
                   {...register("store.tax_no", {
                     required: "Tax ID is required!",
                     pattern: {
-                      value: /^T\d{4}V\d{6}$/ /*[1-9](\d{9})([0,2,4,6,8]{1})*/,
-                      message: "TAX ID is not valid",
+                      value: /^T\d{4}V\d{6}$/,
+                      message: "Invalid TAX ID",
                     },
                   })}
                 />
-                <div className="text-red-600">
-                  {errors.store?.tax_no?.message}
-                </div>
+                <p className="text-sm text-red-600 mt-1">{errors.store?.tax_no?.message}</p>
               </div>
-              <div className=" flex flex-col sm:w-[35rem] w-full ">
-                <label className="font-bold text-xl p-3">Iban:</label>
+
+              <div>
+                <label className="block text-gray-700 font-bold mb-2">IBAN</label>
                 <input
                   placeholder="TRXXXXXXXXXXXXXXXXXXXXXXXX"
-                  className="p-4 rounded-md border border-[#DADADA] text-black"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-color transition"
                   {...register("store.bank_account", {
-                    required: "Iban is required!",
+                    required: "IBAN is required!",
                     pattern: {
-                      value:
-                        /TR[a-zA-Z0-9]{2}s?([0-9]{4}s?){1}([0-9]{1})([a-zA-Z0-9]{3}s?)([a-zA-Z0-9]{4}s?){3}([a-zA-Z0-9]{2})s?/,
-                      message: "Iban is not valid",
+                      value: /^TR\d{2}[0-9A-Z]{22}$/,
+                      message: "Invalid IBAN",
                     },
                   })}
                 />
-                <div className="text-red-600">
+                <p className="text-sm text-red-600 mt-1">
                   {errors.store?.bank_account?.message}
-                </div>
+                </p>
               </div>
-            </div>
+            </>
           )}
 
           <button
-            className="flex justify-center items-center bg-primary-color px-6 py-3 rounded-md text-xl sm:w-[35rem] w-full  mt-6 hover:bg-[rgba(35,165,240,0.79)] cursor-pointer text-center"
             type="submit"
-            formNoValidate="formnovalidate"
+            className="w-full bg-primary-color text-white py-3 rounded-xl text-lg font-semibold hover:bg-[#23a5f0] transition duration-300 flex justify-center items-center"
             disabled={spinner}
           >
-            {spinner ? <Spinner className="text-center" /> : "Sign Up"}
+            {spinner ? <Spinner /> : "Sign Up"}
           </button>
         </form>
       </div>
