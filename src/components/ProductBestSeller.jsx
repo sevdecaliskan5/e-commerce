@@ -19,7 +19,7 @@ const BestSeller = () => {
             BESTSELLER PRODUCTS
           </h3>
           <hr className="border-[#ECECEC]" />
-          <div className="h-6" /> {/* hr altı boşluk */}
+          <div className="h-6" />
         </div>
 
         <div className="max-w-[1049px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[30px]">
