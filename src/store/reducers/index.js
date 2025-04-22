@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
-import { userReducer } from "./userReducer";
 import { globalReducer } from "./globalReducer";
 import { productReducer } from "./productReducer";
-import { shoppingCartReducer } from "./shoppingCartReducer";
+import cartReducer from "../../features/cart/cartSlice";
+import authReducer from "../../features/auth/authSlice";
+import favoritesReducer from "../../features/favorites/favoritesSlice";
 
 export const reducers = combineReducers({
-  user: userReducer,
   global: globalReducer,
   product: productReducer,
-  shoppingCart: shoppingCartReducer,
+  cart: cartReducer,
+  auth: authReducer,
+  favorites: favoritesReducer,
 });
