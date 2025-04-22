@@ -8,7 +8,6 @@ const ProductListPage = () => {
     <>
       <ProductDetailHeader />
       <HeroCategories />
-      {/* <ScrollCategories /> */}
       <ProductFilterBar/>
       <AboutClients />
     </>

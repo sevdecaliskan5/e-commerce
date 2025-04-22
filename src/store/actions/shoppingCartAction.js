@@ -44,7 +44,7 @@ export const fetchAddressThunkAction = () => (dispatch) => {
     .then((res) => dispatch(setAddressAction(res.data)))
     .catch((err) => {
       console.error(err);
-      toast.error("Adress çekilemedi bir hata ile karşılaşıldı!");
+      toast.error("Adres çekilemedi bir hata ile karşılaşıldı!");
     });
 };
 

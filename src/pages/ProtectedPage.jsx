@@ -18,7 +18,7 @@ const ProtectedPage = ({ PageComponent, fromURL }) => {
 
       return (
         <div className=" text-deep-orange-900 text-2xl font-bold text-center py-28">
-          Bu sayfaya devam edebilmek için login olmalısın!. Yönlendiriliyorsun..
+          To continue to this page, you're being redirected to the login screen.
         </div>
       );
     }
