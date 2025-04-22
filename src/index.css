@@ -5,3 +5,36 @@
 body {
   font-family: 'Montserrat', sans-serif;
 }
+
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.toast-success {
+  background-color: #4CAF50;
+  font-size: 16px; 
+  border-radius: 8px; 
+  color: white; 
+}
+
+.home-icon {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem; 
+  font-size: 1.5rem; 
+  text-decoration: none;
+}
+
+

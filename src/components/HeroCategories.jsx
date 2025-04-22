@@ -8,7 +8,7 @@ const HeroCategories = ({ onCategorySelect }) => {
     <div className="max-w-[1088px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 px-4 py-8">
       {items.map((item) => (
         <div
-          key={item.key}
+          key={item.id} 
           onClick={() => onCategorySelect(item.key)}
           className="relative h-[238px] w-full cursor-pointer overflow-hidden rounded shadow-md group"
         >
@@ -30,5 +30,6 @@ const HeroCategories = ({ onCategorySelect }) => {
 };
 
 export default HeroCategories;
+
 
 

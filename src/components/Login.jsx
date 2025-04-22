@@ -1,33 +1,27 @@
-import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import React from "react";
+import { useHistory, NavLink } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserActionCreator } from "../store/actions/userAction";
 import { FETCH_STATES } from "../store/reducers/productReducer";
 import { Spinner } from "@material-tailwind/react";
-import md5 from "blueimp-md5"; // md5 kütüphanesini import ettik
+import md5 from "blueimp-md5";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,  // "watch" kullanarak formun durumunu takip ediyoruz
-  } = useForm({
-    mode: "onChange",
-  });
+    watch,
+  } = useForm({ mode: "onChange" });
 
-  const history = useHistory();
-
-  const rememberMe = watch("rememberMe"); // "rememberMe" alanının değerini takip ediyoruz
-
-  const onFormSubmit = (formData) => {
-    dispatch(fetchUserActionCreator(formData));
-  };
+  const rememberMe = watch("rememberMe");
 
   const userLoading = useSelector(
     (store) => store.user.fetchState === FETCH_STATES.Fetching
@@ -37,46 +31,55 @@ export default function Login() {
     (store) => store.user.fetchState === FETCH_STATES.Fetched
   );
 
-  const user = useSelector((state) => state.user.userInfo); // Kullanıcı bilgilerini alıyoruz
+  const user = useSelector((state) => state.user.userInfo);
+
+  const onFormSubmit = (formData) => {
+    dispatch(fetchUserActionCreator(formData));
+  };
 
   if (userLoaded) {
-    history.push("/");  // Burada ana sayfaya yönlendiriyorsunuz
+    history.push("/");
   }
-  // Kullanıcı Gravatar URL'sini oluşturuyoruz
-  const gravatarUrl = user ? `https://www.gravatar.com/avatar/${md5(user.email)}?s=200&d=retro` : "";
 
- 
+  const gravatarUrl = user
+    ? `https://www.gravatar.com/avatar/${md5(user.email)}?s=200&d=retro`
+    : "";
 
   return (
-    <div className="sm:w-[800px] m-auto w-full">
-      <ToastContainer />
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+      <ToastContainer/>
       <div className="shadow-xl shadow-blue-gray-300 border-light-green-50 flex flex-col justify-center items-center gap-4 py-28 m-10">
-        <i className="bx bx-lock px-4 py-3 bg-primary-color rounded-full text-3xl text-center"></i>
-        <div className="w-[35rem] flex justify-center items-center gap-20">
-          <NavLink
-            to="/login"
-            className="font-bold text-2xl hover:text-primary-color underline"
-          >
-            Login
-          </NavLink>
-          <NavLink
-            to="/signup"
-            className="font-bold text-2xl hover:text-primary-color underline"
-          >
-            Sign Up
-          </NavLink>
+        {/* anasayfa icon */}
+        <Link to="/" className="absolute top-6 left-6 text-2xl text-blue-600 hover:text-blue-800">
+          🏠
+        </Link>
+        </div>
+      <div className="w-full max-w-2xl bg-white shadow-2xl rounded-3xl p-10 space-y-6">
+        <div className="flex flex-col items-center space-y-4">
+          <i className="bx bx-lock text-5xl text-white bg-primary-color p-4 rounded-full shadow-md"></i>
+          <div className="flex justify-center gap-10">
+            <NavLink
+              to="/login"
+              className="text-xl font-semibold text-gray-600 hover:text-primary-color underline transition"
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to="/signup"
+              className="text-xl font-semibold text-gray-600 hover:text-primary-color underline transition"
+            >
+              Sign Up
+            </NavLink>
+          </div>
         </div>
 
-        <form
-          onSubmit={handleSubmit(onFormSubmit)}
-          className="container m-auto flex flex-col justify-center items-center px-2"
-        >
-          <div className="flex flex-col sm:w-[35rem] w-full">
-            <label className="font-bold text-xl p-3">E-mail:</label>
+        <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-6">
+          <div>
+            <label className="block text-gray-700 font-bold mb-2">E-mail</label>
             <input
               autoFocus
               placeholder="E-mail"
-              className="p-4 rounded-md border border-[#DADADA] text-black"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-color transition"
               type="email"
               {...register("email", {
                 required: "Email is required!",
@@ -86,51 +89,50 @@ export default function Login() {
                 },
               })}
             />
-            <div className="text-red-600">{errors.email?.message}</div>
+            <p className="text-sm text-red-600 mt-1">{errors.email?.message}</p>
           </div>
 
-          <div className="flex flex-col sm:w-[35rem] w-full">
-            <label className="font-bold text-xl p-3">Password:</label>
+          <div>
+            <label className="block text-gray-700 font-bold mb-2">Password</label>
             <input
               placeholder="Password"
-              className="p-4 rounded-md border border-[#DADADA] text-black"
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-color transition"
               type="password"
               {...register("password", {
                 required: "Password is required.",
               })}
             />
-            <div className="text-red-600">{errors.password?.message}</div>
+            <p className="text-sm text-red-600 mt-1">{errors.password?.message}</p>
           </div>
 
-          <div className="flex items-center sm:w-[35rem] w-full mt-2">
+          <div className="flex items-center">
             <input
               type="checkbox"
               {...register("rememberMe")}
-              className="mr-2"
+              className="mr-2 rounded"
             />
-            <label>Remember me</label>
+            <label className="text-sm text-gray-700">Remember me</label>
           </div>
 
           <button
-            className="flex justify-center items-center bg-primary-color px-6 py-3 rounded-md text-xl sm:w-[35rem] w-full mt-6 hover:bg-[rgba(35,165,240,0.79)] cursor-pointer text-center"
+            className="w-full bg-primary-color text-white py-3 rounded-xl text-lg font-semibold hover:bg-[#23a5f0] transition duration-300 flex justify-center items-center"
             type="submit"
             formNoValidate="formnovalidate"
           >
             {userLoading ? <Spinner /> : "Sign In"}
           </button>
         </form>
-      </div>
 
-      {/* Kullanıcı resmi (Gravatar) gösterimi */}
-      {user && (
-        <div className="profile-avatar mt-6 flex justify-center items-center">
-          <img
-            src={gravatarUrl}
-            alt="User Avatar"
-            className="rounded-full w-20 h-20 border-4 border-primary-color"
-          />
-        </div>
-      )}
+        {user && (
+          <div className="flex justify-center mt-6">
+            <img
+              src={gravatarUrl}
+              alt="User Avatar"
+              className="w-20 h-20 rounded-full border-4 border-primary-color shadow-lg"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }

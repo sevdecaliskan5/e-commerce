@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchCategories } from "./redux/slices/categorySlice";
-
+import { ToastContainer } from "react-toastify";
 import HomePage from "./pages/HomePage";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -19,6 +19,7 @@ import PaymentPage from "./pages/PaymentPage";
 import CartPage from "./pages/CartPage";
 import ProtectedPage from "./pages/ProtectedPage";
 import ProductListPage from "./pages/ProductListPage";
+import FavoritesPage from "./pages/FavoritesPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,15 +28,15 @@ function App() {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-
   return (
     <Router>
+      <ToastContainer />
       <Switch>
         <Route exact path="/">
           <HomePage />
         </Route>
         <Route path="/shopping" exact>
-        <ShopPage/>
+          <ShopPage />
         </Route>
         <Route path="/shopping/:gender?/:category?" exact>
           <ProductListPage />
@@ -67,6 +68,10 @@ function App() {
         <Route path="/cart" exact>
           <ProtectedPage PageComponent={CartPage} fromURL={"/cart"} />
         </Route>
+        <Route path="/favorites" exact>
+          <ProtectedPage PageComponent={FavoritesPage} fromURL={"/favorites"} />
+        </Route>
+
         <Route path="/order" exact>
           <OrderPage />
         </Route>
@@ -79,6 +84,3 @@ function App() {
 }
 
 export default App;
-
-
-// :productId/:productNameSlug

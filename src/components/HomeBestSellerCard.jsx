@@ -13,7 +13,7 @@ function HomeBestSellerCard() {
 
   const handleAddToCart = (item) => {
     const productToAdd = {
-      id: item.key, // Redux slice içinde id kullanılıyor
+      id: item.key,
       name: item.product,
       price: Number(item.discountedPrice),
       images: [{ url: item.img }],
