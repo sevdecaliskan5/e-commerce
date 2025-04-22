@@ -15,19 +15,23 @@ const favoritesSlice = createSlice({
         state.favoriteList.push(newItem);
       }
     },
+
     removeFromFavorites: (state, action) => {
-      const id = action.payload;
-      state.favoriteList = state.favoriteList.filter(item => item.id !== id);
+      const idToRemove = action.payload;
+      state.favoriteList = state.favoriteList.filter(item => item.id !== idToRemove);
     },
+
     toggleFavorite: (state, action) => {
       const item = action.payload;
-      const exists = state.favoriteList.find(fav => fav.id === item.id);
+      const exists = state.favoriteList.some(fav => fav.id === item.id);
+
       if (exists) {
         state.favoriteList = state.favoriteList.filter(fav => fav.id !== item.id);
       } else {
         state.favoriteList.push(item);
       }
     },
+
     clearFavorites: (state) => {
       state.favoriteList = [];
     },
@@ -42,3 +46,4 @@ export const {
 } = favoritesSlice.actions;
 
 export default favoritesSlice.reducer;
+
