@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import placeholderImage from "../assets/images/products/pic2.svg"; // Placeholder için SVG
+import placeholderImage from "../assets/images/products/pic2.svg"; 
 
 export default function ProductDescription() {
   const [activeTab, setActiveTab] = useState("description");
 
   return (
     <div className="bg-white w-full px-4 sm:px-8 lg:px-0 max-w-[1040px] mx-auto py-14 text-[#252B42]">
-      {/* Tabs */}
+      {/* tabs */}
       <div className="flex justify-center gap-6 border-b border-[#BDBDBD] pb-6 mb-12 text-sm font-semibold flex-wrap">
         <button
           onClick={() => setActiveTab("description")}
@@ -40,9 +40,8 @@ export default function ProductDescription() {
         </button>
       </div>
 
-      {/* Content */}
       <div className="flex flex-col lg:flex-row gap-12 items-start">
-        {/* Sol: Görsel */}
+        {/* sol */}
         <div className="w-full lg:w-[414px] h-[442px] flex justify-center items-center">
           <img
             src={placeholderImage}
@@ -51,7 +50,7 @@ export default function ProductDescription() {
           />
         </div>
 
-        {/* Sağ: İçerik */}
+        {/* sag */}
         <div className="flex-1 flex flex-col gap-6">
           <h2 className="text-2xl font-bold leading-[32px]">the quick fox jumps over</h2>
           <div className="flex flex-col gap-4 text-sm font-normal text-[#737373] leading-[24px]">
