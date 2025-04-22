@@ -1,23 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { createSelector } from "reselect";
 
 const initialState = {
-  cartList: [],
+  cartList: JSON.parse(localStorage.getItem("cartList")) || [],  
   totalAmount: 0,
   totalQuantity: 0,
 };
 
-const calculateTotalsFn = (state) => {
+const calculateTotalsFn = (cartList) => {
   let totalAmount = 0;
   let totalQuantity = 0;
-  state.cartList.forEach(item => {
+  cartList.forEach((item) => {
     if (item.checked) {
       totalAmount += item.price * item.productQuantity;
       totalQuantity += item.productQuantity;
     }
   });
-  state.totalAmount = totalAmount;
-  state.totalQuantity = totalQuantity;
+  return { totalAmount, totalQuantity };
 };
+
+export const selectTotals = createSelector(
+  [(state) => state.cart?.cartList || []],
+  (cartList) => calculateTotalsFn(cartList)
+);
+
+export const selectCartList = (state) => state.cart.cartList;
 
 const cartSlice = createSlice({
   name: "cart",
@@ -25,49 +32,85 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const newItem = action.payload;
-      const existingItem = state.cartList.find(item => item.id === newItem.id);
+      const existingItem = state.cartList.find((item) => item.id === newItem.id);
       if (existingItem) {
         existingItem.productQuantity += 1;
       } else {
-        state.cartList.push({ ...newItem, productQuantity: 1, checked: true });
+        state.cartList.push({ ...newItem, productQuantity: 1, checked: false });
       }
-      calculateTotalsFn(state);
+
+      const { totalAmount, totalQuantity } = calculateTotalsFn(state.cartList);
+      state.totalAmount = totalAmount;
+      state.totalQuantity = totalQuantity;
     },
+
     removeFromCart: (state, action) => {
       const id = action.payload;
-      state.cartList = state.cartList.filter(item => item.id !== id);
-      calculateTotalsFn(state);
+      state.cartList = state.cartList.filter((item) => item.id !== id);
+
+      saveCartToLocalStorage(state.cartList);
+
+      const { totalAmount, totalQuantity } = calculateTotalsFn(state.cartList);
+      state.totalAmount = totalAmount;
+      state.totalQuantity = totalQuantity;
     },
+
     increaseQuantity: (state, action) => {
       const id = action.payload;
-      const item = state.cartList.find(item => item.id === id);
+      const item = state.cartList.find((item) => item.id === id);
       if (item) item.productQuantity += 1;
-      calculateTotalsFn(state);
+
+      saveCartToLocalStorage(state.cartList);
+
+      const { totalAmount, totalQuantity } = calculateTotalsFn(state.cartList);
+      state.totalAmount = totalAmount;
+      state.totalQuantity = totalQuantity;
     },
+
     decreaseQuantity: (state, action) => {
       const id = action.payload;
-      const item = state.cartList.find(item => item.id === id);
+      const item = state.cartList.find((item) => item.id === id);
       if (item && item.productQuantity > 1) {
         item.productQuantity -= 1;
       }
-      calculateTotalsFn(state);
+
+      saveCartToLocalStorage(state.cartList);
+
+      const { totalAmount, totalQuantity } = calculateTotalsFn(state.cartList);
+      state.totalAmount = totalAmount;
+      state.totalQuantity = totalQuantity;
     },
+
     toggleChecked: (state, action) => {
       const { id, checked } = action.payload;
-      const item = state.cartList.find(item => item.id === id);
+      const item = state.cartList.find((item) => item.id === id);
       if (item) {
         item.checked = checked;
       }
-      calculateTotalsFn(state);
+
+      saveCartToLocalStorage(state.cartList);
+
+      const { totalAmount, totalQuantity } = calculateTotalsFn(state.cartList);
+      state.totalAmount = totalAmount;
+      state.totalQuantity = totalQuantity;
     },
-    calculateTotals: calculateTotalsFn,
+
     clearCart: (state) => {
       state.cartList = [];
       state.totalAmount = 0;
       state.totalQuantity = 0;
-    }
-  }
+
+      localStorage.removeItem("cartList");
+    },
+
+    updateTotals: (state) => {
+      const { totalAmount, totalQuantity } = calculateTotalsFn(state.cartList);
+      state.totalAmount = totalAmount;
+      state.totalQuantity = totalQuantity;
+    },
+  },
 });
+
 
 export const {
   addToCart,
@@ -75,10 +118,13 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   toggleChecked,
-  calculateTotals,
-  clearCart
+  clearCart,
+  updateTotals,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
 
+const saveCartToLocalStorage = (cartList) => {
+  localStorage.setItem("cartList", JSON.stringify(cartList));
+};
 
