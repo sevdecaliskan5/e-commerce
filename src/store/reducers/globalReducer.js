@@ -1,17 +1,20 @@
-import { SET_ROLES } from "../actions/globalAction";
-import { SET_CATEGORY } from "../actions/globalAction";
-import { CHANGE_THEME } from "../actions/globalAction";
-import { CHANGE_LANGUAGE } from "../actions/globalAction";
+import {
+  SET_ROLES,
+  SET_CATEGORY,
+  CHANGE_THEME,
+  CHANGE_LANGUAGE,
+} from "../actions/globalAction";
 
-const global = {
+const initialState = {
   roles: [],
   categories: [],
   theme: "light",
   language: "tr",
 };
 
-export const globalReducer = (state = global, action) => {
+export const globalReducer = (state = initialState, action) => {
   const { type, payload } = action;
+
   switch (type) {
     case SET_ROLES:
       return { ...state, roles: payload };

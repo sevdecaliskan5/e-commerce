@@ -1,32 +1,21 @@
-import { SET_USER } from "../actions/userAction";
-import { SET_USER_FETCH_STATE } from "../actions/userAction";
-import { FETCH_STATES } from "./productReducer";
-
-const user = {
-  userInfo: {
-    name: "",
-    email: "",
-    role: "", 
-  },
+import { FETCH_STATES } from "./productReducer"; 
+const initialState = {
   fetchState: FETCH_STATES.NotFetched,
+  userInfo: null,
 };
 
-export function userReducer(state = user, action) {
-  const { type, payload } = action;
-
-  switch (type) {
-    case SET_USER:
+export default function userReducer(state = initialState, action) {
+  switch (action.type) {
+    case "FETCH_USER_START":
+      return { ...state, fetchState: FETCH_STATES.Fetching };
+    case "FETCH_USER_SUCCESS":
       return {
         ...state,
-        userInfo: {
-          ...state.userInfo, 
-          ...payload,          
-        },
+        fetchState: FETCH_STATES.Fetched,
+        userInfo: action.payload,
       };
-
-    case SET_USER_FETCH_STATE:
-      return { ...state, fetchState: payload };
-
+    case "FETCH_USER_ERROR":
+      return { ...state, fetchState: FETCH_STATES.Error };
     default:
       return state;
   }
