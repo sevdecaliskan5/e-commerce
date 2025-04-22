@@ -1,17 +1,10 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { ShoppingCart, Heart } from "lucide-react";
-import {
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
-  Button,
-} from "@material-tailwind/react";
 import { useDispatch, useSelector } from "react-redux";
-import { FETCH_STATES } from "../store/reducers/productReducer";
 import { fetchCategoryActionCreator } from "../store/actions/globalAction";
-import { calculateTotals } from "../features/cart/cartSlice";
+import { selectTotals } from "../features/cart/cartSlice";
+import { FETCH_STATES_ENUM } from "../features/auth/authSlice";
 import MD5 from "crypto-js/md5";
 
 const HomeHeader = () => {
@@ -19,25 +12,14 @@ const HomeHeader = () => {
   const [visibleItem, setVisibleItem] = useState(false);
   const [toggle, setToggle] = useState(false);
   const { search } = useLocation();
+  const { totalAmount, totalQuantity } = useSelector(selectTotals);
 
-  const userInfo = useSelector((store) => store.user.userInfo);
-  const userNotFetched = useSelector(
-    (store) => store.user.fetchState === FETCH_STATES.NotFetched
-  );
-  const userFetched = useSelector(
-    (store) => store.user.fetchState === FETCH_STATES.Fetched
-  );
-  const categories = useSelector((store) => store.global.categories);
-  const cartProducts = useSelector((store) => store.shoppingCart.cartList);
-  const { totalQuantity } = useSelector((store) => store.shoppingCart);
+  const { userInfo, fetchState } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    dispatch(fetchCategoryActionCreator());
-  }, []);
-
-  useEffect(() => {
-    dispatch(calculateTotals());
-  }, [cartProducts]);
+  const categories = useSelector((state) => {
+    console.log("Tüm Redux state:", state);
+    return state.global?.categories || [];
+  });
 
   const womanCategories = categories.filter((category) =>
     category.code.includes("k:")
@@ -46,14 +28,16 @@ const HomeHeader = () => {
     category.code.includes("e:")
   );
 
+  useEffect(() => {
+    dispatch(fetchCategoryActionCreator());
+  }, [dispatch]);
+
   return (
     <div className="bg-white">
       <div className="py-6 sm:w-[90rem] m-auto">
         <div className="max-w-[1322px] mx-auto flex justify-between items-center px-6 py-2 text-sm text-[#292929]">
-
           <NavLink
             to="/"
-            exact
             className={`${
               !visibleItem ? "flex" : "hidden sm:flex"
             } text-xl font-bold`}
@@ -62,8 +46,8 @@ const HomeHeader = () => {
           </NavLink>
 
           <div className="flex gap-4 items-center text-gray-700">
-            <NavLink to="/" exact>Home</NavLink>
-            <div className="flex items-center">
+            <NavLink to="/">Home</NavLink>
+            <div className="flex items-center relative">
               <NavLink to="/shopping">Shop</NavLink>
               <button
                 onClick={() => setToggle(!toggle)}
@@ -104,6 +88,7 @@ const HomeHeader = () => {
                           key={category.id}
                           to={`/shopping/erkek/${category.code.slice(2)}${search}`}
                           className="block py-1 text-sm hover:underline"
+                          onClick={() => setToggle(false)}
                         >
                           {category.title}
                         </NavLink>
@@ -113,46 +98,56 @@ const HomeHeader = () => {
                 </div>
               )}
             </div>
-            <NavLink to="/about" exact>About</NavLink>
-            <NavLink to="/blog" exact>Blog</NavLink>
-            <NavLink to="/contact" exact>Contact</NavLink>
-            <NavLink to="/team" exact>Team</NavLink>
-            <NavLink to="/pricing" exact>Pricing</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/team">Team</NavLink>
+            <NavLink to="/pricing">Pricing</NavLink>
           </div>
 
-          <div className="flex items-center gap-2 text-black sm:text-primary-color font-light">
-            {userNotFetched && (
+          <div className="flex items-center gap-4 text-black sm:text-primary-color font-light">
+            {fetchState === "NotFetched" && (
               <div className="flex">
                 <NavLink to="/login" className="text-[#23a6f0]">Login -</NavLink>
                 <NavLink to="/signup" className="text-[#23a6f0]">Register</NavLink>
               </div>
             )}
 
-            <input
-              type="text"
-              name="searchingItem"
-              className="border bg-[#F5F5F5] text-black p-2 sm:w-72"
-              placeholder="Search"
-              hidden={!visibleItem}
-            />
+            <div className="relative">
+              <input
+                type="text"
+                name="searchingItem"
+                className={`border border-gray-300 bg-[#F5F5F5] text-lg text-black p-2 rounded-sm transition-all duration-200 ${
+                  visibleItem ? "w-64 opacity-100" : "w-0 opacity-0"
+                }`}
+                placeholder="Search"
+              />
+              <button
+                onClick={() => setVisibleItem(!visibleItem)}
+                className="absolute right-0 top-0 h-full text-gray-600 hover:text-black"
+              >
+                <i className="bx bx-search text-2xl font-bold"></i>
+              </button>
+            </div>
 
-            <button onClick={() => setVisibleItem(!visibleItem)}>
-              <i className="bx bx-search text-2xl"></i>
-            </button>
-
-            <NavLink to="/cart" exact hidden={visibleItem}>
-              <ShoppingCart className="text-2xl" />
-              {totalQuantity > 0 && <p>{totalQuantity}</p>}
+            <NavLink to="/cart" className="relative">
+              <ShoppingCart className="w-6 h-6 hover:text-[#23a6f0] transition-colors duration-200" />
+              {totalQuantity > 0 && (
+                <span className="absolute -top-2 -right-2 bg-[#23a6f0] text-white text-[10px] font-semibold px-1.5 py-0.5 rounded-full">
+                  {totalQuantity}
+                </span>
+              )}
             </NavLink>
 
-            <NavLink to="/favorites" exact hidden={visibleItem}>
-              <Heart className="text-2xl" />
+            <NavLink to="/favorites">
+              <Heart className="w-6 h-6 hover:text-[#23a6f0] transition-colors duration-200" />
             </NavLink>
 
-            {userFetched && (
+            {fetchState === "Fetched" && userInfo?.email && (
               <img
-                className="rounded-full"
+                className="rounded-full w-9 h-9 object-cover border border-gray-300"
                 src={`https://www.gravatar.com/avatar/${MD5(userInfo.email)}?s=35`}
+                alt="User"
               />
             )}
           </div>
@@ -163,3 +158,8 @@ const HomeHeader = () => {
 };
 
 export default HomeHeader;
+
+
+
+
+
