@@ -115,7 +115,7 @@ const PaymentPage = () => {
               <h5 className="py-2 text-xs font-bold  text-gray-500">
                 You can make your payment safely by{" "}
                 <span className="text-black">Debit/Credit Card</span> or{" "}
-                <span className="text-black">Shopping Credit.</span>
+                <span className="text-black">Shopping Credit</span>
               </h5>
             </div>
           </div>

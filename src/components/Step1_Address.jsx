@@ -84,7 +84,7 @@ const Step1_Address = ({ selectedAddress, setSelectedAddress, nextStep }) => {
 
   return (
     <div>
-      <h2 className="text-xl font-bold mb-4">Address Selection.</h2>
+      <h2 className="text-xl font-bold mb-4">Address Selection</h2>
       <div className="grid grid-cols-1 gap-4">
         {["Home Address", "Workplace"].map((title, idx) => (
           <div

@@ -19,7 +19,7 @@ const OrderSummary = () => {
     <div className="w-full max-w-md mx-auto py-10 px-4">
       <div className="bg-white rounded-2xl shadow-md p-6 text-gray-700 space-y-4 border border-gray-200">
         <h2 className="text-lg font-bold text-gray-900 border-b pb-3">
-          🧾 Order Summary
+          Order Summary
         </h2>
 
         <div className="flex justify-between text-sm">

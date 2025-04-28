@@ -20,8 +20,8 @@ const Step3_Confirm = ({ selectedAddress, selectedPayment, prevStep }) => {
 
   return (
     <div className="p-6 max-w-2xl mx-auto bg-white rounded-lg shadow-xl">
-      <h2 className="text-3xl font-semibold text-center mb-6 text-gray-800">
-      Order Summary
+      <h2 className="text-xl font-semibold text-center mb-6 text-gray-800">
+        Order Summary
       </h2>
 
       <div className="mb-6">
@@ -46,15 +46,6 @@ const Step3_Confirm = ({ selectedAddress, selectedPayment, prevStep }) => {
           className="flex-1 bg-green-600 text-white px-5 py-2 rounded-md transition-all duration-300"
         >
           Confirm Order
-        </button>
-      </div>
-
-      <div className="mt-6 text-center">
-        <button
-          onClick={goHome}
-          className="w-full bg-blue-600 text-white px-5 py-2 rounded-md transition-all duration-300"
-        >
-          Back to Home
         </button>
       </div>
     </div>
